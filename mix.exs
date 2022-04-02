@@ -23,14 +23,16 @@ defmodule ElixirCLRut.MixProject do
   defp docs do
     [
       # Docs
-      name: "ElixirCL RUT",
+      name: "ElixirCLRUT",
       source_url: "https://github.com/ElixirCL/rut",
       homepage_url: "https://hexdocs.pm/elixircl_rut",
       docs: [
         # The main page in the docs
         main: "ElixirCLRut",
         # logo: "https://raw.githubusercontent.com/ElixirCL/elixircl.github.io/main/img/logo.png",
-        extras: ["README.md"]
+        extras: ["README.md", "LICENSE.md", "AUTHORS.md", "CHANGELOG.md"],
+        authors: ["AUTHORS.md"],
+        output: "docs"
       ]
     ]
   end

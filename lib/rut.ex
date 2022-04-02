@@ -6,9 +6,7 @@ defmodule ElixirCLRut do
   """
   @moduledoc since: "1.0.0"
 
-  defstruct [:from, :checkdigit, :formatted, :normalized, :lastchar]
-
-  alias ElixirCLRut, as: Rut
+  alias ElixirCLRut.Struct, as: Rut
   alias ElixirCLRut.Formatter
   alias ElixirCLRut.CheckDigit
   alias ElixirCLRut.Validator
@@ -103,7 +101,7 @@ defmodule ElixirCLRut do
 
   ## Examples
 
-      iex> is_valid?("2228250-6")
+      iex> valid?("2228250-6")
       {:ok, %ElixirCLRut{
         from: "2228250-6",
         checkdigit: "6",
@@ -113,7 +111,7 @@ defmodule ElixirCLRut do
         }
       }
 
-      iex> is_valid?("14193432")
+      iex> valid?("14193432")
       {:ok, %ElixirCLRut{
         from: "14193432",
         checkdigit: "5",
@@ -123,7 +121,7 @@ defmodule ElixirCLRut do
         }
       }
 
-      iex> is_valid?(14193432)
+      iex> valid?(14193432)
       {:ok, %ElixirCLRut{
         from: "14193432",
         checkdigit: "5",
@@ -133,7 +131,7 @@ defmodule ElixirCLRut do
         }
       }
 
-      iex> is_valid?(ElixirCLRut.from("14193432"))
+      iex> valid?(ElixirCLRut.from("14193432"))
       {:ok, %ElixirCLRut{
         from: "14193432",
         checkdigit: "5",
@@ -145,23 +143,47 @@ defmodule ElixirCLRut do
 
   """
   @doc since: "1.0.0"
-  @spec is_valid?(struct()) :: {:ok, struct()} | {:error, struct()}
-  def is_valid?(%Rut{} = input) do
-    case Validator.is_valid?(input.checkdigit, input.lastchar) do
+  @spec valid?(struct()) :: {:ok, struct()} | {:error, struct()}
+  def valid?(%Rut{} = input) do
+    # TODO: Move the logic inside validator
+    case Enum.count(input.normalized) > 0 and
+           Validator.valid?(input.checkdigit, input.lastchar) do
       true -> {:ok, input}
       false -> {:error, input}
     end
   end
 
   @doc since: "1.0.0"
-  @spec is_valid?(String.t()) :: {:ok, struct()} | {:error, struct()}
-  def is_valid?(input) when is_binary(input) do
-    Rut.from(input) |> is_valid?
+  @spec valid?(String.t()) :: {:ok, struct()} | {:error, struct()}
+  def valid?(input) when is_binary(input) do
+    Rut.from(input) |> valid?
   end
 
   @doc since: "1.0.0"
-  @spec is_valid?(integer()) :: {:ok, struct()} | {:error, struct()}
-  def is_valid?(input) do
-    to_string(input) |> is_valid?
+  @spec valid?(integer()) :: {:ok, struct()} | {:error, struct()}
+  def valid?(input) do
+    to_string(input) |> valid?
+  end
+
+  @doc """
+  Strict mode will also validate format and avoid known fake ruts likes 1-9
+  and less than 6 length ruts.
+  Some regex rules can be passed, if any of them match, it will consider
+  the rut as invalid.
+  strict false is the same as `valid?/1`.
+  """
+  @doc since: "1.0.0"
+  @spec valid?(struct(), boolean(), list()) :: {:ok, struct()} | {:error, struct()}
+  def valid?(%Rut{} = input, true, rules \\ []) do
+    case valid?(input) do
+      {:ok, input} -> Validator.strict(input, rules)
+      error -> error
+    end
+  end
+
+  @doc since: "1.0.0"
+  @spec valid?(struct(), boolean(), list()) :: {:ok, struct()} | {:error, struct()}
+  def valid?(%Rut{} = input, false, _) do
+    valid?(input)
   end
 end

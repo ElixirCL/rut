@@ -22,19 +22,19 @@ defmodule ElixirCLRut.Formatter do
   @doc since: "1.0.0"
   @spec format(list(), String.t(), String.t()) :: String.t()
   def format(normalized, checkdigit, sep \\ ".") when is_list(normalized) do
-    formatted = normalized
-    |> Enum.reverse()
-    |> Enum.chunk_every(3)
-    |> Enum.map(& &1 |> Enum.reverse() |> Enum.join())
-    |> Enum.reverse()
-    |> Enum.join(sep)
+    formatted =
+      normalized
+      |> Enum.reverse()
+      |> Enum.chunk_every(3)
+      |> Enum.map(&(&1 |> Enum.reverse() |> Enum.join()))
+      |> Enum.reverse()
+      |> Enum.join(sep)
 
     "#{formatted}-#{checkdigit}"
   end
 
   @doc """
   Removes all chars (except for numbers and letter K) from the RUT.
-  Converts lowercase to uppercase.
 
   ## Examples
 
@@ -53,11 +53,11 @@ defmodule ElixirCLRut.Formatter do
       ~r/[^0-9^k^K]/,
       ""
     )
-    |> String.upcase()
   end
 
   @doc """
   Transforms a RUT string to a list of numbers.
+  Converts lowercase to uppercase.
 
   ## Examples
 
@@ -72,6 +72,7 @@ defmodule ElixirCLRut.Formatter do
   @spec normalize(String.t()) :: String.t()
   def normalize(input) do
     clean(input)
+    |> String.upcase()
     |> String.split("", trim: true)
     |> Enum.map(fn item ->
       case Integer.parse(item) do

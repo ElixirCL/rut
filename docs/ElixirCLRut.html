@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.3">
+    <meta name="project" content="ElixirCLRUT v1.0.0">
+
+      <meta name="author" content="AUTHORS.md">
+
+    <title>ElixirCLRut — ElixirCLRUT v1.0.0</title>
+    <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
+
+    <script src="dist/sidebar_items-e2e984d123.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-a088a6cc33ae3464193e.js"></script>
+
+
+  </head>
+  <body data-type="modules">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href="https://hexdocs.pm/elixircl_rut" class="sidebar-projectName" translate="no">
+ElixirCLRUT
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v1.0.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L1" title="View Source" class="view-source" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+  <span translate="no">ElixirCLRut</span>
+  <small class="app-vsn" translate="no">(ElixirCLRUT v1.0.0)</small>
+
+</h1>
+
+
+  <section id="moduledoc">
+<p>A module that helps with validation and formatting
+of chilean <a href="https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario">RUT/RUN identifiers</a>.
+Made by the <a href="https://elixircl.github.io">Elixir Chile</a> Community.</p>
+  </section>
+
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+      Summary
+    </h1>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#from/1" translate="no">from(input)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Standarizes the <code class="inline">input</code> and returns a struct
+that contains the formatted values.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#valid?/1" translate="no">valid?(input)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Tells if the <em>ElixirCLRut</em> structure is valid.
+Beware that this will consider valid 1-9 and 0-0.
+Values normally considered fake ones and although valid,
+should be considered as not real values.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#valid?/3" translate="no">valid?(input, bool, rules \\ [])</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Strict mode will also validate format and avoid known fake ruts likes 1-9
+and less than 6 length ruts.
+Some regex rules can be passed, if any of them match, it will consider
+the rut as invalid.
+strict false is the same as <a href="#valid?/1"><code class="inline">valid?/1</code></a>.</p></div>
+
+      </div>
+
+  </div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+Functions
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="from/1">
+
+  <div class="detail-header">
+    <a href="#from/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">from(input)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L46" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+      <span class="note">(since 1.0.0)</span>
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> from(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
+
+          <pre translate="no"><span class="attribute">@spec</span> from(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
+
+      </div>
+
+<p>Standarizes the <code class="inline">input</code> and returns a struct
+that contains the formatted values.</p><p>This structure must be passed down to the validator function
+for checking if the <em>RUT</em> is valid.</p><h2 id="from/1-examples" class="section-heading">
+  <a href="#from/1-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">examples</p>
+  </a>
+  Examples
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="2029699712-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="2029699712-1">)</span><span class="w">
+</span><span class="p" data-group-id="2029699712-2">%</span><span class="nc" data-group-id="2029699712-2">ElixirCLRut</span><span class="p" data-group-id="2029699712-2">{</span><span class="w">
+  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2228250-6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2.228.250-6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2029699712-3">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="2029699712-3">]</span><span class="w">
+</span><span class="p" data-group-id="2029699712-2">}</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="2029699712-4">(</span><span class="s">&quot;14193432&quot;</span><span class="p" data-group-id="2029699712-4">)</span><span class="w">
+</span><span class="p" data-group-id="2029699712-5">%</span><span class="nc" data-group-id="2029699712-5">ElixirCLRut</span><span class="p" data-group-id="2029699712-5">{</span><span class="w">
+  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2029699712-6">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="2029699712-6">]</span><span class="w">
+</span><span class="p" data-group-id="2029699712-5">}</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="valid?/1">
+
+  <div class="detail-header">
+    <a href="#valid?/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">valid?(input)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L149" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+      <span class="note">(since 1.0.0)</span>
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
+
+          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
+
+          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
+
+      </div>
+
+<p>Tells if the <em>ElixirCLRut</em> structure is valid.
+Beware that this will consider valid 1-9 and 0-0.
+Values normally considered fake ones and although valid,
+should be considered as not real values.</p><p>Returns a tuple:</p><ul><li><code class="inline">{:ok, %ElixirCLRut{}}</code> if valid</li><li><code class="inline">{:error, %ElixirCLRut{}}</code> if is not valid.</li></ul><h2 id="valid?/1-examples" class="section-heading">
+  <a href="#valid?/1-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">examples</p>
+  </a>
+  Examples
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="0768212143-1">)</span><span class="w">
+</span><span class="p" data-group-id="0768212143-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-3">%</span><span class="nc" data-group-id="0768212143-3">ElixirCLRut</span><span class="p" data-group-id="0768212143-3">{</span><span class="w">
+  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2228250-6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2.228.250-6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-4">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="0768212143-4">]</span><span class="w">
+  </span><span class="p" data-group-id="0768212143-3">}</span><span class="w">
+</span><span class="p" data-group-id="0768212143-2">}</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-5">(</span><span class="s">&quot;14193432&quot;</span><span class="p" data-group-id="0768212143-5">)</span><span class="w">
+</span><span class="p" data-group-id="0768212143-6">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-7">%</span><span class="nc" data-group-id="0768212143-7">ElixirCLRut</span><span class="p" data-group-id="0768212143-7">{</span><span class="w">
+  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-8">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0768212143-8">]</span><span class="w">
+  </span><span class="p" data-group-id="0768212143-7">}</span><span class="w">
+</span><span class="p" data-group-id="0768212143-6">}</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-9">(</span><span class="mi">14193432</span><span class="p" data-group-id="0768212143-9">)</span><span class="w">
+</span><span class="p" data-group-id="0768212143-10">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-11">%</span><span class="nc" data-group-id="0768212143-11">ElixirCLRut</span><span class="p" data-group-id="0768212143-11">{</span><span class="w">
+  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-12">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0768212143-12">]</span><span class="w">
+  </span><span class="p" data-group-id="0768212143-11">}</span><span class="w">
+</span><span class="p" data-group-id="0768212143-10">}</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-13">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">from</span><span class="p" data-group-id="0768212143-14">(</span><span class="s">&quot;14193432&quot;</span><span class="p" data-group-id="0768212143-14">)</span><span class="p" data-group-id="0768212143-13">)</span><span class="w">
+</span><span class="p" data-group-id="0768212143-15">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-16">%</span><span class="nc" data-group-id="0768212143-16">ElixirCLRut</span><span class="p" data-group-id="0768212143-16">{</span><span class="w">
+  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-17">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0768212143-17">]</span><span class="w">
+  </span><span class="p" data-group-id="0768212143-16">}</span><span class="w">
+</span><span class="p" data-group-id="0768212143-15">}</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="valid?/3">
+
+    <span id="valid?/2"></span>
+
+  <div class="detail-header">
+    <a href="#valid?/3" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">valid?(input, bool, rules \\ [])</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L179" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+      <span class="note">(since 1.0.0)</span>
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
+
+          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
+
+      </div>
+
+<p>Strict mode will also validate format and avoid known fake ruts likes 1-9
+and less than 6 length ruts.
+Some regex rules can be passed, if any of them match, it will consider
+the rut as invalid.
+strict false is the same as <a href="#valid?/1"><code class="inline">valid?/1</code></a>.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.3) for the
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

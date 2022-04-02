@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.28.3">
+    <meta name="project" content="ElixirCLRUT v1.0.0">
+
+      <meta name="author" content="AUTHORS.md">
+
+    <title>Mozilla Public License Version 2.0 — ElixirCLRUT v1.0.0</title>
+    <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
+
+    <script src="dist/sidebar_items-e2e984d123.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-a088a6cc33ae3464193e.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+
+<section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+    <div class="sidebar-projectDetails">
+      <a href="https://hexdocs.pm/elixircl_rut" class="sidebar-projectName" translate="no">
+ElixirCLRUT
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v1.0.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/ElixirCL/rut/blob/main/LICENSE.md#L1" title="View Source" class="view-source" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+  <span>Mozilla Public License Version 2.0</span>
+</h1>
+
+<h3 id="1-definitions" class="section-heading">
+  <a href="#1-definitions" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">1-definitions</p>
+  </a>
+  1. Definitions
+</h3>
+<p><strong>1.1. “Contributor”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">legal</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">creates</span><span class="p">,</span><span class="w"> </span><span class="n">contributes</span><span class="w"> </span><span class="n">to</span><span class="w">
+</span><span class="n">the</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">of</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">owns</span><span class="w"> </span><span class="nc">Covered</span><span class="w"> </span><span class="nc">Software</span><span class="o">.</span></code></pre><p><strong>1.2. “Contributor Version”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">combination</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Contributions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">others</span><span class="w"> </span><span class="p" data-group-id="5474347526-1">(</span><span class="k">if</span><span class="w"> </span><span class="n">any</span><span class="p" data-group-id="5474347526-1">)</span><span class="w"> </span><span class="n">used</span><span class="w">
+</span><span class="n">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="nc">Contributor</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="nc">Contributor</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="nc">Contribution</span><span class="o">.</span></code></pre><p><strong>1.3. “Contribution”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="nc">Covered</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">particular</span><span class="w"> </span><span class="nc">Contributor</span><span class="o">.</span></code></pre><p><strong>1.4. “Covered Software”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="nc">Source</span><span class="w"> </span><span class="nc">Code</span><span class="w"> </span><span class="nc">Form</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="nc">Contributor</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">attached</span><span class="w">
+</span><span class="n">the</span><span class="w"> </span><span class="n">notice</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nc">Exhibit</span><span class="w"> </span><span class="nc">A</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Executable</span><span class="w"> </span><span class="nc">Form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="nc">Source</span><span class="w"> </span><span class="nc">Code</span><span class="w">
+</span><span class="nc">Form</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nc">Modifications</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="nc">Source</span><span class="w"> </span><span class="nc">Code</span><span class="w"> </span><span class="nc">Form</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="k">case</span><span class="w">
+</span><span class="n">including</span><span class="w"> </span><span class="n">portions</span><span class="w"> </span><span class="n">thereof</span><span class="o">.</span></code></pre><p><strong>1.5. “Incompatible With Secondary Licenses”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span></code></pre><ul><li><strong>(a)</strong> that the initial Contributor has attached the notice described
+  in Exhibit B to the Covered Software; or</li><li><strong>(b)</strong> that the Covered Software was made available under the terms of
+  version 1.1 or earlier of the License, but not also under the
+  terms of a Secondary License.</li></ul><p><strong>1.6. “Executable Form”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="nc">Source</span><span class="w"> </span><span class="nc">Code</span><span class="w"> </span><span class="nc">Form</span><span class="o">.</span></code></pre><p><strong>1.7. “Larger Work”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">combines</span><span class="w"> </span><span class="nc">Covered</span><span class="w"> </span><span class="nc">Software</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">material</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w">
+</span><span class="n">a</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nc">Covered</span><span class="w"> </span><span class="nc">Software</span><span class="o">.</span></code></pre><p><strong>1.8. “License”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">document</span><span class="o">.</span></code></pre><p><strong>1.9. “Licensable”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">having</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">grant</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">extent</span><span class="w"> </span><span class="n">possible</span><span class="p">,</span><span class="w">
+</span><span class="n">whether</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">grant</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">subsequently</span><span class="p">,</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="ow">and</span><span class="w">
+</span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rights</span><span class="w"> </span><span class="n">conveyed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="nc">License</span><span class="o">.</span></code></pre><p><strong>1.10. “Modifications”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="p">:</span></code></pre><ul><li><strong>(a)</strong> any file in Source Code Form that results from an addition to,
+  deletion from, or modification of the contents of Covered
+  Software; or</li><li><strong>(b)</strong> any new file in Source Code Form that contains any Covered
+  Software.</li></ul><p><strong>1.11. “Patent Claims” of a Contributor</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">patent</span><span class="w"> </span><span class="n">claim</span><span class="p" data-group-id="6768580138-1">(</span><span class="n">s</span><span class="p" data-group-id="6768580138-1">)</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">limitation</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w">
+</span><span class="n">process</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">apparatus</span><span class="w"> </span><span class="n">claims</span><span class="p">,</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">patent</span><span class="w"> </span><span class="nc">Licensable</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">such</span><span class="w">
+</span><span class="nc">Contributor</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">infringed</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">grant</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w">
+</span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">making</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="p">,</span><span class="w"> </span><span class="n">selling</span><span class="p">,</span><span class="w"> </span><span class="n">offering</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">sale</span><span class="p">,</span><span class="w"> </span><span class="n">having</span><span class="w">
+</span><span class="n">made</span><span class="p">,</span><span class="w"> </span><span class="kn">import</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="nc">Contributions</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">its</span><span class="w">
+</span><span class="nc">Contributor</span><span class="w"> </span><span class="nc">Version</span><span class="o">.</span></code></pre><p><strong>1.12. “Secondary License”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w">
+</span><span class="nc">Lesser</span><span class="w"> </span><span class="nc">General</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">GNU</span><span class="w"> </span><span class="nc">Affero</span><span class="w"> </span><span class="nc">General</span><span class="w">
+</span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="nc">Version</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">those</span><span class="w">
+</span><span class="n">licenses</span><span class="o">.</span></code></pre><p><strong>1.13. “Source Code Form”</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">preferred</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">making</span><span class="w"> </span><span class="n">modifications</span><span class="o">.</span></code></pre><p><strong>1.14. “You” (or “Your”)</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">means</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">legal</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="n">exercising</span><span class="w"> </span><span class="n">rights</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">this</span><span class="w">
+</span><span class="nc">License</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w"> </span><span class="n">legal</span><span class="w"> </span><span class="n">entities</span><span class="p">,</span><span class="w"> </span><span class="err">“</span><span class="nc">You</span><span class="err">”</span><span class="w"> </span><span class="n">includes</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="n">that</span><span class="w">
+</span><span class="n">controls</span><span class="p">,</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">controlled</span><span class="w"> </span><span class="n">by</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="nc">You</span><span class="o">.</span><span class="w"> </span><span class="nc">For</span><span class="w">
+</span><span class="n">purposes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">definition</span><span class="p">,</span><span class="w"> </span><span class="err">“</span><span class="n">control</span><span class="err">”</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="o">*</span><span class="o">*</span><span class="p" data-group-id="8300000372-1">(</span><span class="n">a</span><span class="p" data-group-id="8300000372-1">)</span><span class="o">*</span><span class="o">*</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">power</span><span class="p">,</span><span class="w"> </span><span class="n">direct</span><span class="w">
+</span><span class="ow">or</span><span class="w"> </span><span class="n">indirect</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">cause</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">management</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">entity</span><span class="p">,</span><span class="w">
+</span><span class="n">whether</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">contract</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">otherwise</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">*</span><span class="o">*</span><span class="p" data-group-id="8300000372-2">(</span><span class="n">b</span><span class="p" data-group-id="8300000372-2">)</span><span class="o">*</span><span class="o">*</span><span class="w"> </span><span class="n">ownership</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w">
+</span><span class="n">fifty</span><span class="w"> </span><span class="n">percent</span><span class="w"> </span><span class="p" data-group-id="8300000372-3">(</span><span class="mi">50</span><span class="p">%</span><span class="p" data-group-id="8300000372-3">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">outstanding</span><span class="w"> </span><span class="n">shares</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">beneficial</span><span class="w">
+</span><span class="n">ownership</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">entity</span><span class="o">.</span></code></pre><h3 id="2-license-grants-and-conditions" class="section-heading">
+  <a href="#2-license-grants-and-conditions" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">2-license-grants-and-conditions</p>
+  </a>
+  2. License Grants and Conditions
+</h3>
+<h4>2.1. Grants</h4><p>Each Contributor hereby grants You a world-wide, royalty-free,
+non-exclusive license:</p><ul><li><strong>(a)</strong> under intellectual property rights (other than patent or trademark)
+  Licensable by such Contributor to use, reproduce, make available,
+  modify, display, perform, distribute, and otherwise exploit its
+  Contributions, either on an unmodified basis, with Modifications, or
+  as part of a Larger Work; and</li><li><strong>(b)</strong> under Patent Claims of such Contributor to make, use, sell, offer
+  for sale, have made, import, and otherwise transfer either its
+  Contributions or its Contributor Version.</li></ul><h4>2.2. Effective Date</h4><p>The licenses granted in Section 2.1 with respect to any Contribution
+become effective for each Contribution on the date the Contributor first
+distributes such Contribution.</p><h4>2.3. Limitations on Grant Scope</h4><p>The licenses granted in this Section 2 are the only rights granted under
+this License. No additional rights or licenses will be implied from the
+distribution or licensing of Covered Software under this License.
+Notwithstanding Section 2.1(b) above, no patent license is granted by a
+Contributor:</p><ul><li><strong>(a)</strong> for any code that a Contributor has removed from Covered Software;
+  or</li><li><strong>(b)</strong> for infringements caused by: <strong>(i)</strong> Your and any other third party's
+  modifications of Covered Software, or <strong>(ii)</strong> the combination of its
+  Contributions with other software (except as part of its Contributor
+  Version); or</li><li><strong>(c)</strong> under Patent Claims infringed by Covered Software in the absence of
+  its Contributions.</li></ul><p>This License does not grant any rights in the trademarks, service marks,
+or logos of any Contributor (except as may be necessary to comply with
+the notice requirements in Section 3.4).</p><h4>2.4. Subsequent Licenses</h4><p>No Contributor makes additional grants as a result of Your choice to
+distribute the Covered Software under a subsequent version of this
+License (see Section 10.2) or under the terms of a Secondary License (if
+permitted under the terms of Section 3.3).</p><h4>2.5. Representation</h4><p>Each Contributor represents that the Contributor believes its
+Contributions are its original creation(s) or it has sufficient rights
+to grant the rights to its Contributions conveyed by this License.</p><h4>2.6. Fair Use</h4><p>This License is not intended to limit any rights You have under
+applicable copyright doctrines of fair use, fair dealing, or other
+equivalents.</p><h4>2.7. Conditions</h4><p>Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
+in Section 2.1.</p><h3 id="3-responsibilities" class="section-heading">
+  <a href="#3-responsibilities" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">3-responsibilities</p>
+  </a>
+  3. Responsibilities
+</h3>
+<h4>3.1. Distribution of Source Form</h4><p>All distribution of Covered Software in Source Code Form, including any
+Modifications that You create or to which You contribute, must be under
+the terms of this License. You must inform recipients that the Source
+Code Form of the Covered Software is governed by the terms of this
+License, and how they can obtain a copy of this License. You may not
+attempt to alter or restrict the recipients' rights in the Source Code
+Form.</p><h4>3.2. Distribution of Executable Form</h4><p>If You distribute Covered Software in Executable Form then:</p><ul><li><p><strong>(a)</strong> such Covered Software must also be made available in Source Code
+  Form, as described in Section 3.1, and You must inform recipients of
+  the Executable Form how they can obtain a copy of such Source Code
+  Form by reasonable means in a timely manner, at a charge no more
+  than the cost of distribution to the recipient; and</p></li><li><p><strong>(b)</strong> You may distribute such Executable Form under the terms of this
+  License, or sublicense it under different terms, provided that the
+  license for the Executable Form does not attempt to limit or alter
+  the recipients' rights in the Source Code Form under this License.</p></li></ul><h4>3.3. Distribution of a Larger Work</h4><p>You may create and distribute a Larger Work under terms of Your choice,
+provided that You also comply with the requirements of this License for
+the Covered Software. If the Larger Work is a combination of Covered
+Software with a work governed by one or more Secondary Licenses, and the
+Covered Software is not Incompatible With Secondary Licenses, this
+License permits You to additionally distribute such Covered Software
+under the terms of such Secondary License(s), so that the recipient of
+the Larger Work may, at their option, further distribute the Covered
+Software under the terms of either this License or such Secondary
+License(s).</p><h4>3.4. Notices</h4><p>You may not remove or alter the substance of any license notices
+(including copyright notices, patent notices, disclaimers of warranty,
+or limitations of liability) contained within the Source Code Form of
+the Covered Software, except that You may alter any license notices to
+the extent required to remedy known factual inaccuracies.</p><h4>3.5. Application of Additional Terms</h4><p>You may choose to offer, and to charge a fee for, warranty, support,
+indemnity or liability obligations to one or more recipients of Covered
+Software. However, You may do so only on Your own behalf, and not on
+behalf of any Contributor. You must make it absolutely clear that any
+such warranty, support, indemnity, or liability obligation is offered by
+You alone, and You hereby agree to indemnify every Contributor for any
+liability incurred by such Contributor as a result of warranty, support,
+indemnity or liability terms You offer. You may include additional
+disclaimers of warranty and limitations of liability specific to any
+jurisdiction.</p><h3 id="4-inability-to-comply-due-to-statute-or-regulation" class="section-heading">
+  <a href="#4-inability-to-comply-due-to-statute-or-regulation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">4-inability-to-comply-due-to-statute-or-regulation</p>
+  </a>
+  4. Inability to Comply Due to Statute or Regulation
+</h3>
+<p>If it is impossible for You to comply with any of the terms of this
+License with respect to some or all of the Covered Software due to
+statute, judicial order, or regulation then You must: <strong>(a)</strong> comply with
+the terms of this License to the maximum extent possible; and <strong>(b)</strong>
+describe the limitations and the code they affect. Such description must
+be placed in a text file included with all distributions of the Covered
+Software under this License. Except to the extent prohibited by statute
+or regulation, such description must be sufficiently detailed for a
+recipient of ordinary skill to be able to understand it.</p><h3 id="5-termination" class="section-heading">
+  <a href="#5-termination" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">5-termination</p>
+  </a>
+  5. Termination
+</h3>
+<p><strong>5.1.</strong> The rights granted under this License will terminate automatically
+if You fail to comply with any of its terms. However, if You become
+compliant, then the rights granted under this License from a particular
+Contributor are reinstated <strong>(a)</strong> provisionally, unless and until such
+Contributor explicitly and finally terminates Your grants, and <strong>(b)</strong> on an
+ongoing basis, if such Contributor fails to notify You of the
+non-compliance by some reasonable means prior to 60 days after You have
+come back into compliance. Moreover, Your grants from a particular
+Contributor are reinstated on an ongoing basis if such Contributor
+notifies You of the non-compliance by some reasonable means, this is the
+first time You have received notice of non-compliance with this License
+from such Contributor, and You become compliant prior to 30 days after
+Your receipt of the notice.</p><p><strong>5.2.</strong> If You initiate litigation against any entity by asserting a patent
+infringement claim (excluding declaratory judgment actions,
+counter-claims, and cross-claims) alleging that a Contributor Version
+directly or indirectly infringes any patent, then the rights granted to
+You by any and all Contributors for the Covered Software under Section
+2.1 of this License shall terminate.</p><p><strong>5.3.</strong> In the event of termination under Sections 5.1 or 5.2 above, all
+end user license agreements (excluding distributors and resellers) which
+have been validly granted by You or Your distributors under this License
+prior to termination shall survive termination.</p><h3 id="6-disclaimer-of-warranty" class="section-heading">
+  <a href="#6-disclaimer-of-warranty" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">6-disclaimer-of-warranty</p>
+  </a>
+  6. Disclaimer of Warranty
+</h3>
+<blockquote><p>Covered Software is provided under this License on an “as is”
+basis, without warranty of any kind, either expressed, implied, or
+statutory, including, without limitation, warranties that the
+Covered Software is free of defects, merchantable, fit for a
+particular purpose or non-infringing. The entire risk as to the
+quality and performance of the Covered Software is with You.
+Should any Covered Software prove defective in any respect, You
+(not any Contributor) assume the cost of any necessary servicing,
+repair, or correction. This disclaimer of warranty constitutes an
+essential part of this License. No use of any Covered Software is
+authorized under this License except under this disclaimer.</p></blockquote><h3 id="7-limitation-of-liability" class="section-heading">
+  <a href="#7-limitation-of-liability" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">7-limitation-of-liability</p>
+  </a>
+  7. Limitation of Liability
+</h3>
+<blockquote><p>Under no circumstances and under no legal theory, whether tort
+(including negligence), contract, or otherwise, shall any
+Contributor, or anyone who distributes Covered Software as
+permitted above, be liable to You for any direct, indirect,
+special, incidental, or consequential damages of any character
+including, without limitation, damages for lost profits, loss of
+goodwill, work stoppage, computer failure or malfunction, or any
+and all other commercial damages or losses, even if such party
+shall have been informed of the possibility of such damages. This
+limitation of liability shall not apply to liability for death or
+personal injury resulting from such party's negligence to the
+extent applicable law prohibits such limitation. Some
+jurisdictions do not allow the exclusion or limitation of
+incidental or consequential damages, so this exclusion and
+limitation may not apply to You.</p></blockquote><h3 id="8-litigation" class="section-heading">
+  <a href="#8-litigation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">8-litigation</p>
+  </a>
+  8. Litigation
+</h3>
+<p>Any litigation relating to this License may be brought only in the
+courts of a jurisdiction where the defendant maintains its principal
+place of business and such litigation shall be governed by laws of that
+jurisdiction, without reference to its conflict-of-law provisions.
+Nothing in this Section shall prevent a party's ability to bring
+cross-claims or counter-claims.</p><h3 id="9-miscellaneous" class="section-heading">
+  <a href="#9-miscellaneous" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">9-miscellaneous</p>
+  </a>
+  9. Miscellaneous
+</h3>
+<p>This License represents the complete agreement concerning the subject
+matter hereof. If any provision of this License is held to be
+unenforceable, such provision shall be reformed only to the extent
+necessary to make it enforceable. Any law or regulation which provides
+that the language of a contract shall be construed against the drafter
+shall not be used to construe this License against a Contributor.</p><h3 id="10-versions-of-the-license" class="section-heading">
+  <a href="#10-versions-of-the-license" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">10-versions-of-the-license</p>
+  </a>
+  10. Versions of the License
+</h3>
+<h4>10.1. New Versions</h4><p>Mozilla Foundation is the license steward. Except as provided in Section
+10.3, no one other than the license steward has the right to modify or
+publish new versions of this License. Each version will be given a
+distinguishing version number.</p><h4>10.2. Effect of New Versions</h4><p>You may distribute the Covered Software under the terms of the version
+of the License under which You originally received the Covered Software,
+or under the terms of any subsequent version published by the license
+steward.</p><h4>10.3. Modified Versions</h4><p>If you create software not governed by this License, and you want to
+create a new license for such software, you may create and use a
+modified version of this License if you rename the license and remove
+any references to the name of the license steward (except to note that
+such modified license differs from this License).</p><h4>10.4. Distributing Source Code Form that is Incompatible With Secondary Licenses</h4><p>If You choose to distribute Source Code Form that is Incompatible With
+Secondary Licenses under the terms of this version of the License, the
+notice described in Exhibit B of this License must be attached.</p><h2 id="exhibit-a-source-code-form-license-notice" class="section-heading">
+  <a href="#exhibit-a-source-code-form-license-notice" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">exhibit-a-source-code-form-license-notice</p>
+  </a>
+  Exhibit A - Source Code Form License Notice
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="nc">This</span><span class="w"> </span><span class="nc">Source</span><span class="w"> </span><span class="nc">Code</span><span class="w"> </span><span class="nc">Form</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terms</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Mozilla</span><span class="w"> </span><span class="nc">Public</span><span class="w">
+</span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="w"> </span><span class="mf">2.0</span><span class="o">.</span><span class="w"> </span><span class="nc">If</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">MPL</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">distributed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">this</span><span class="w">
+</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="nc">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">obtain</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">http</span><span class="ss">://</span><span class="n">mozilla</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="nc">MPL</span><span class="o">/</span><span class="mf">2.0</span><span class="o">/</span><span class="o">.</span></code></pre><p>If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.</p><p>You may add additional accurate notices of copyright ownership.</p><h2 id="exhibit-b-incompatible-with-secondary-licenses-notice" class="section-heading">
+  <a href="#exhibit-b-incompatible-with-secondary-licenses-notice" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">exhibit-b-incompatible-with-secondary-licenses-notice</p>
+  </a>
+  Exhibit B - “Incompatible With Secondary Licenses” Notice
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="nc">This</span><span class="w"> </span><span class="nc">Source</span><span class="w"> </span><span class="nc">Code</span><span class="w"> </span><span class="nc">Form</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="s">&quot;Incompatible With Secondary Licenses&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">as</span><span class="w">
+</span><span class="n">defined</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nc">Mozilla</span><span class="w"> </span><span class="nc">Public</span><span class="w"> </span><span class="nc">License</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="o">.</span><span class="w"> </span><span class="mf">2.0</span><span class="o">.</span></code></pre>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="readme.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+ElixirCLRut
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="authors.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+ElixirCLRut Authors
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.3) for the
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
