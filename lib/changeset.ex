@@ -13,18 +13,11 @@ defmodule ElixirCLRut.Changeset do
   end
 
   def error(%Changeset{} = changeset, error) do
+    # If we set an error is automatically invalid
     %Changeset{
       from: changeset.input,
       errors: [error | changeset.errors],
-      valid?: changeset.valid?
-    }
-  end
-
-  def validate(%Changeset{} = changeset) do
-    %Changeset{
-      from: changeset.input,
-      errors: changeset.errors,
-      valid?: changeset.errors == []
+      valid?: false
     }
   end
 end

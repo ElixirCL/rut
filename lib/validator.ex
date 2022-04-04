@@ -73,6 +73,5 @@ defmodule ElixirCLRut.Validator do
     Changeset.from(input)
     |> Validations.not_empty
     |> Validations.has_valid_checkdigit
-    |> Changeset.validate
   end
 end
