@@ -2,13 +2,13 @@ defmodule ElixirCLRut.Changeset do
   alias ElixirCLRut.Struct, as: Rut
   alias ElixirCLRut.Changeset
 
-  defstruct [:from, errors = [], valid? = false]
+  defstruct [:from, errors = [], valid? = true]
 
   def from(%Rut{} = input) do
     %Changeset{
       from: input,
       errors: [],
-      valid?: false
+      valid?: true
     }
   end
 
