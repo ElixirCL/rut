@@ -9,7 +9,9 @@ defmodule ElixirCLRut.MixProject do
       version: @version,
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package()
     ] ++ docs()
   end
 
@@ -30,7 +32,7 @@ defmodule ElixirCLRut.MixProject do
         # The main page in the docs
         main: "ElixirCLRut",
         # logo: "https://raw.githubusercontent.com/ElixirCL/elixircl.github.io/main/img/logo.png",
-        extras: ["README.md", "LICENSE.md", "AUTHORS.md", "CHANGELOG.md"],
+        extras: ["README.md", "LICENSE.md", "CHANGELOG.md"],
         authors: ["AUTHORS.md"],
         output: "docs"
       ]
@@ -42,6 +44,21 @@ defmodule ElixirCLRut.MixProject do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false}
+    ]
+  end
+
+  defp description() do
+    "A chilean RUT/RUN validator and formatter"
+  end
+
+  defp package() do
+    [
+      name: "elixircl_rut",
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["ElixirCL"],
+      licenses: ["MPL v2.0"],
+      links: %{"GitHub" => "https://github.com/ElixirCL/rut"},
+      organization: "elixircl_"
     ]
   end
 end

@@ -101,20 +101,18 @@ defmodule ElixirCLRut do
   strict false is the same as `valid?/1`.
   """
   @doc since: "1.0.0"
-  @spec valid?(struct(), boolean(), list(String.t())) :: {:ok, struct()} | {:error, list()}
-  def valid?(%Rut{} = input, true, rules \\ []) do
+  @spec valid?(struct() | String.t(), boolean(), list(String.t())) ::
+          {:ok, struct()} | {:error, list()}
+  def valid?(input, strict \\ true, rules \\ [])
+
+  def valid?(%Rut{} = input, true, rules) do
     Validator.strict(input, rules)
   end
 
-  @doc since: "1.0.0"
-  @spec valid?(integer | String.t(), boolean(), list(String.t())) ::
-          {:ok, struct()} | {:error, list()}
-  def valid?(input, true, rules) do
-    valid?(Rut.from(Kernel.to_string(input)), true, rules)
+  def valid?(input, true, rules) when is_binary(input) do
+    valid?(Rut.from(input), true, rules)
   end
 
-  @doc since: "1.0.0"
-  @spec valid?(struct(), boolean(), list(String.t())) :: {:ok, struct()} | {:error, list()}
   def valid?(input, false, _) do
     valid?(input)
   end

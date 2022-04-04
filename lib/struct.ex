@@ -4,7 +4,13 @@ defmodule ElixirCLRut.Struct do
   """
   @moduledoc since: "1.0.0"
 
-  defstruct [:from, :checkdigit, :formatted, :normalized, :lastchar]
+  defstruct [
+    :from,
+    :checkdigit,
+    #:formatted,
+    :normalized,
+    :lastchar
+  ]
 
   alias ElixirCLRut.Struct, as: Rut
   alias ElixirCLRut.Formatter
@@ -70,13 +76,13 @@ defmodule ElixirCLRut.Struct do
       end
 
     # 4 - Format
-    formatted = Formatter.format(normalized_no_checkdigit, checkdigit)
+    #formatted = Formatter.format(normalized_no_checkdigit, checkdigit)
 
     # 5 - Return the structure ready for validation function
     %Rut{
       from: String.trim(input),
       checkdigit: checkdigit,
-      formatted: formatted,
+      #formatted: formatted,
       lastchar: lastchar,
       normalized: normalized
     }
