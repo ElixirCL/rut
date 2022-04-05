@@ -9,7 +9,7 @@
 
       <meta name="author" content="AUTHORS.md">
 
-    <title>ElixirCLRut.Validator — ElixirCLRUT v1.0.0</title>
+    <title>ElixirCLRut.Validations — ElixirCLRUT v1.0.0</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
     <script src="dist/sidebar_items-ae350f415e.js"></script>
@@ -95,19 +95,19 @@ ElixirCLRUT
 </button>
 
 
-    <a href="https://github.com/ElixirCL/rut/blob/main/lib/validator.ex#L1" title="View Source" class="view-source" rel="help">
+    <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L1" title="View Source" class="view-source" rel="help">
       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
       <span class="sr-only">View Source</span>
     </a>
 
-  <span translate="no">ElixirCLRut.Validator</span> 
+  <span translate="no">ElixirCLRut.Validations</span> 
   <small class="app-vsn" translate="no">(ElixirCLRUT v1.0.0)</small>
 
 </h1>
 
 
   <section id="moduledoc">
-<p>Provides simple validation helpers.</p>
+<p>Stores different validation functions</p>
   </section>
 
 
@@ -127,12 +127,23 @@ ElixirCLRUT
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#validate/1" translate="no">validate(input)</a>
+          <a href="#has_valid_checkdigit/1" translate="no">has_valid_checkdigit(token)</a>
 
         </div>
 
-          <div class="summary-synopsis"><p>Validates the ElixirCLRut.Struct with some default
-validations.</p></div>
+          <div class="summary-synopsis"><p>Receives a Token struct and validates checkdigit with lastdigit.
+If they are different it will add :wrong_checkdigit to the errors list.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#not_empty/1" translate="no">not_empty(token)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Receives a Token struct and counts the normalized array,
+if it's empty it will add :value_is_empty to the errors list.</p></div>
 
       </div>
 
@@ -150,16 +161,16 @@ validations.</p></div>
 Functions
     </h1>
     <div class="functions-list">
-<section class="detail" id="validate/1">
+<section class="detail" id="has_valid_checkdigit/1">
 
   <div class="detail-header">
-    <a href="#validate/1" class="detail-link" title="Link to this function">
+    <a href="#has_valid_checkdigit/1" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">validate(input)</h1>
+    <h1 class="signature" translate="no">has_valid_checkdigit(token)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validator.ex#L16" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L28" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -171,8 +182,45 @@ Functions
 
   <section class="docstring">
 
-<p>Validates the ElixirCLRut.Struct with some default
-validations.</p>
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> has_valid_checkdigit(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
+
+      </div>
+
+<p>Receives a Token struct and validates checkdigit with lastdigit.
+If they are different it will add :wrong_checkdigit to the errors list.</p>
+  </section>
+</section>
+<section class="detail" id="not_empty/1">
+
+  <div class="detail-header">
+    <a href="#not_empty/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">not_empty(token)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L15" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+      <span class="note">(since 1.0.0)</span>
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> not_empty(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
+
+      </div>
+
+<p>Receives a Token struct and counts the normalized array,
+if it's empty it will add :value_is_empty to the errors list.</p>
   </section>
 </section>
 
@@ -188,7 +236,7 @@ validations.</p>
               <a href="https://hex.pm/packages/elixircl_rut/1.0.0" class="line footer-hex-package">Package</a>
               <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0" class="line">Preview</a>
 
-                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0/show/lib/validator.ex">(current file)</a>
+                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0/show/lib/validations.ex">(current file)</a>
 
             </span>
 

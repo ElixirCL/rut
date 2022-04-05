@@ -4,33 +4,23 @@ defmodule ElixirCLRut.Formatter do
   """
   @moduledoc since: "1.0.0"
 
+  alias ElixirCLRut.Struct, as: Rut
+
   @doc """
   Gives format to a normalized RUT.
-
-  ## Examples
-
-      iex> format([2,2,2,8,2,5,0],"6")
-      "2.228.250-6"
-
-      iex> format([1, 4, 1, 9, 3, 4, 3, 2], "5")
-      "14.193.432-5"
-
-      iex> format([1, 4, 1, 9, 3, 4, 3, 2], "5", ",")
-      "14,193,432-5"
-
   """
   @doc since: "1.0.0"
-  @spec format(list(), String.t(), String.t()) :: String.t()
-  def format(normalized, checkdigit, sep \\ ".") when is_list(normalized) do
+  @spec format(struct(), String.t()) :: String.t()
+  def format(%Rut{} = input, sep \\ ".") do
     formatted =
-      normalized
+      input.normalized
       |> Enum.reverse()
       |> Enum.chunk_every(3)
       |> Enum.map(&(&1 |> Enum.reverse() |> Enum.join()))
       |> Enum.reverse()
       |> Enum.join(sep)
 
-    "#{formatted}-#{checkdigit}"
+    "#{formatted}-#{input.checkdigit}"
   end
 
   @doc """

@@ -12,7 +12,7 @@
     <title>ElixirCLRut.Formatter — ElixirCLRUT v1.0.0</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-e2e984d123.js"></script>
+    <script src="dist/sidebar_items-ae350f415e.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -137,7 +137,7 @@ ElixirCLRUT
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#format/3" translate="no">format(normalized, checkdigit, sep \\ &quot;.&quot;)</a>
+          <a href="#format/2" translate="no">format(input, sep \\ &quot;.&quot;)</a>
 
         </div>
 
@@ -179,7 +179,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">clean(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L50" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L40" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -203,25 +203,25 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="0489531899-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="0489531899-1">)</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="6023457656-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="6023457656-1">)</span><span class="w">
 </span><span class="s">&quot;22282506&quot;</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="0489531899-2">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="0489531899-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="6023457656-2">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="6023457656-2">)</span><span class="w">
 </span><span class="s">&quot;141934325&quot;</span></code></pre>
   </section>
 </section>
-<section class="detail" id="format/3">
+<section class="detail" id="format/2">
 
-    <span id="format/2"></span>
+    <span id="format/1"></span>
 
   <div class="detail-header">
-    <a href="#format/3" class="detail-link" title="Link to this function">
+    <a href="#format/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">format(normalized, checkdigit, sep \\ &quot;.&quot;)</h1>
+    <h1 class="signature" translate="no">format(input, sep \\ &quot;.&quot;)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L24" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L14" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -235,24 +235,11 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> format(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> format(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
 
       </div>
 
-<p>Gives format to a normalized RUT.</p><h2 id="format/3-examples" class="section-heading">
-  <a href="#format/3-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">examples</p>
-  </a>
-  Examples
-</h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="2498206184-1">(</span><span class="p" data-group-id="2498206184-2">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p" data-group-id="2498206184-2">]</span><span class="p">,</span><span class="s">&quot;6&quot;</span><span class="p" data-group-id="2498206184-1">)</span><span class="w">
-</span><span class="s">&quot;2.228.250-6&quot;</span><span class="w">
-
-</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="2498206184-3">(</span><span class="p" data-group-id="2498206184-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="2498206184-4">]</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p" data-group-id="2498206184-3">)</span><span class="w">
-</span><span class="s">&quot;14.193.432-5&quot;</span><span class="w">
-
-</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="2498206184-5">(</span><span class="p" data-group-id="2498206184-6">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="2498206184-6">]</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p" data-group-id="2498206184-5">)</span><span class="w">
-</span><span class="s">&quot;14,193,432-5&quot;</span></code></pre>
+<p>Gives format to a normalized RUT.</p>
   </section>
 </section>
 <section class="detail" id="normalize/1">
@@ -264,7 +251,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">normalize(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L73" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L63" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -289,11 +276,11 @@ Converts lowercase to uppercase.</p><h2 id="normalize/1-examples" class="section
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="8503261354-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="8503261354-1">)</span><span class="w">
-</span><span class="p" data-group-id="8503261354-2">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="8503261354-2">]</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="2804128251-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="2804128251-1">)</span><span class="w">
+</span><span class="p" data-group-id="2804128251-2">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="2804128251-2">]</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="8503261354-3">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="8503261354-3">)</span><span class="w">
-</span><span class="p" data-group-id="8503261354-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="8503261354-4">]</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="2804128251-3">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="2804128251-3">)</span><span class="w">
+</span><span class="p" data-group-id="2804128251-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2804128251-4">]</span></code></pre>
   </section>
 </section>
 
@@ -301,6 +288,22 @@ Converts lowercase to uppercase.</p><h2 id="normalize/1-examples" class="section
   </section>
 
       <footer class="footer">
+
+          <p>
+            On Hex.pm:
+
+            <span class="line">
+              <a href="https://hex.pm/packages/elixircl_rut/1.0.0" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0" class="line">Preview</a>
+
+                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0/show/lib/formatter.ex">(current file)</a>
+
+            </span>
+
+            <button class="line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
 
         <p>
           Built using

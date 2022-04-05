@@ -12,7 +12,7 @@
     <title>ElixirCLRut — ElixirCLRUT v1.0.0</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-e2e984d123.js"></script>
+    <script src="dist/sidebar_items-ae350f415e.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -100,7 +100,7 @@ ElixirCLRUT
       <span class="sr-only">View Source</span>
     </a>
 
-  <span translate="no">ElixirCLRut</span>
+  <span translate="no">ElixirCLRut</span> 
   <small class="app-vsn" translate="no">(ElixirCLRUT v1.0.0)</small>
 
 </h1>
@@ -129,12 +129,21 @@ Made by the <a href="https://elixircl.github.io">Elixir Chile</a> Community.</p>
 
       <div class="summary-row">
         <div class="summary-signature">
+          <a href="#format/2" translate="no">format(input, sep \\ &quot;.&quot;)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Formats a string or Rut struct with the Rut format.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
           <a href="#from/1" translate="no">from(input)</a>
 
         </div>
 
-          <div class="summary-synopsis"><p>Standarizes the <code class="inline">input</code> and returns a struct
-that contains the formatted values.</p></div>
+          <div class="summary-synopsis"><p>When given a string it will return an ElixirCLRut.Struct</p></div>
 
       </div>
 
@@ -144,24 +153,18 @@ that contains the formatted values.</p></div>
 
         </div>
 
-          <div class="summary-synopsis"><p>Tells if the <em>ElixirCLRut</em> structure is valid.
-Beware that this will consider valid 1-9 and 0-0.
-Values normally considered fake ones and although valid,
-should be considered as not real values.</p></div>
+          <div class="summary-synopsis"><p>Performs a simple validation and returns the boolean result.
+true if is valid.</p></div>
 
       </div>
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#valid?/3" translate="no">valid?(input, bool, rules \\ [])</a>
+          <a href="#validate/1" translate="no">validate(input)</a>
 
         </div>
 
-          <div class="summary-synopsis"><p>Strict mode will also validate format and avoid known fake ruts likes 1-9
-and less than 6 length ruts.
-Some regex rules can be passed, if any of them match, it will consider
-the rut as invalid.
-strict false is the same as <a href="#valid?/1"><code class="inline">valid?/1</code></a>.</p></div>
+          <div class="summary-synopsis"><p>Executes the rut validations.</p></div>
 
       </div>
 
@@ -179,6 +182,45 @@ strict false is the same as <a href="#valid?/1"><code class="inline">valid?/1</c
 Functions
     </h1>
     <div class="functions-list">
+<section class="detail" id="format/2">
+
+    <span id="format/1"></span>
+
+  <div class="detail-header">
+    <a href="#format/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">format(input, sep \\ &quot;.&quot;)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L31" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+      <span class="note">(since 1.0.0)</span>
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> format(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>Formats a string or Rut struct with the Rut format.</p><h2 id="format/2-example" class="section-heading">
+  <a href="#format/2-example" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">example</p>
+  </a>
+  Example
+</h2>
+<p>  iex&gt; format(&quot;1&quot;)
+  &quot;1-9&quot;</p>
+  </section>
+</section>
 <section class="detail" id="from/1">
 
   <div class="detail-header">
@@ -188,7 +230,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">from(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L46" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L18" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -204,35 +246,9 @@ Functions
 
           <pre translate="no"><span class="attribute">@spec</span> from(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
 
-          <pre translate="no"><span class="attribute">@spec</span> from(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
-
       </div>
 
-<p>Standarizes the <code class="inline">input</code> and returns a struct
-that contains the formatted values.</p><p>This structure must be passed down to the validator function
-for checking if the <em>RUT</em> is valid.</p><h2 id="from/1-examples" class="section-heading">
-  <a href="#from/1-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">examples</p>
-  </a>
-  Examples
-</h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="2029699712-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="2029699712-1">)</span><span class="w">
-</span><span class="p" data-group-id="2029699712-2">%</span><span class="nc" data-group-id="2029699712-2">ElixirCLRut</span><span class="p" data-group-id="2029699712-2">{</span><span class="w">
-  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2228250-6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2.228.250-6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2029699712-3">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="2029699712-3">]</span><span class="w">
-</span><span class="p" data-group-id="2029699712-2">}</span><span class="w">
-
-</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="2029699712-4">(</span><span class="s">&quot;14193432&quot;</span><span class="p" data-group-id="2029699712-4">)</span><span class="w">
-</span><span class="p" data-group-id="2029699712-5">%</span><span class="nc" data-group-id="2029699712-5">ElixirCLRut</span><span class="p" data-group-id="2029699712-5">{</span><span class="w">
-  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2029699712-6">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="2029699712-6">]</span><span class="w">
-</span><span class="p" data-group-id="2029699712-5">}</span></code></pre>
+<p>When given a string it will return an ElixirCLRut.Struct</p>
   </section>
 </section>
 <section class="detail" id="valid?/1">
@@ -244,7 +260,7 @@ for checking if the <em>RUT</em> is valid.</p><h2 id="from/1-examples" class="se
     </a>
     <h1 class="signature" translate="no">valid?(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L149" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L60" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -258,76 +274,24 @@ for checking if the <em>RUT</em> is valid.</p><h2 id="from/1-examples" class="se
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
-
-          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
-
-          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
+          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
 
       </div>
 
-<p>Tells if the <em>ElixirCLRut</em> structure is valid.
-Beware that this will consider valid 1-9 and 0-0.
-Values normally considered fake ones and although valid,
-should be considered as not real values.</p><p>Returns a tuple:</p><ul><li><code class="inline">{:ok, %ElixirCLRut{}}</code> if valid</li><li><code class="inline">{:error, %ElixirCLRut{}}</code> if is not valid.</li></ul><h2 id="valid?/1-examples" class="section-heading">
-  <a href="#valid?/1-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">examples</p>
-  </a>
-  Examples
-</h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="0768212143-1">)</span><span class="w">
-</span><span class="p" data-group-id="0768212143-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-3">%</span><span class="nc" data-group-id="0768212143-3">ElixirCLRut</span><span class="p" data-group-id="0768212143-3">{</span><span class="w">
-  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2228250-6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2.228.250-6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-4">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="0768212143-4">]</span><span class="w">
-  </span><span class="p" data-group-id="0768212143-3">}</span><span class="w">
-</span><span class="p" data-group-id="0768212143-2">}</span><span class="w">
-
-</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-5">(</span><span class="s">&quot;14193432&quot;</span><span class="p" data-group-id="0768212143-5">)</span><span class="w">
-</span><span class="p" data-group-id="0768212143-6">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-7">%</span><span class="nc" data-group-id="0768212143-7">ElixirCLRut</span><span class="p" data-group-id="0768212143-7">{</span><span class="w">
-  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-8">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0768212143-8">]</span><span class="w">
-  </span><span class="p" data-group-id="0768212143-7">}</span><span class="w">
-</span><span class="p" data-group-id="0768212143-6">}</span><span class="w">
-
-</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-9">(</span><span class="mi">14193432</span><span class="p" data-group-id="0768212143-9">)</span><span class="w">
-</span><span class="p" data-group-id="0768212143-10">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-11">%</span><span class="nc" data-group-id="0768212143-11">ElixirCLRut</span><span class="p" data-group-id="0768212143-11">{</span><span class="w">
-  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-12">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0768212143-12">]</span><span class="w">
-  </span><span class="p" data-group-id="0768212143-11">}</span><span class="w">
-</span><span class="p" data-group-id="0768212143-10">}</span><span class="w">
-
-</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="0768212143-13">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">from</span><span class="p" data-group-id="0768212143-14">(</span><span class="s">&quot;14193432&quot;</span><span class="p" data-group-id="0768212143-14">)</span><span class="p" data-group-id="0768212143-13">)</span><span class="w">
-</span><span class="p" data-group-id="0768212143-15">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0768212143-16">%</span><span class="nc" data-group-id="0768212143-16">ElixirCLRut</span><span class="p" data-group-id="0768212143-16">{</span><span class="w">
-  </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14193432&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">formatted</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14.193.432-5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">lastchar</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0768212143-17">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0768212143-17">]</span><span class="w">
-  </span><span class="p" data-group-id="0768212143-16">}</span><span class="w">
-</span><span class="p" data-group-id="0768212143-15">}</span></code></pre>
+<p>Performs a simple validation and returns the boolean result.
+true if is valid.</p>
   </section>
 </section>
-<section class="detail" id="valid?/3">
-
-    <span id="valid?/2"></span>
+<section class="detail" id="validate/1">
 
   <div class="detail-header">
-    <a href="#valid?/3" class="detail-link" title="Link to this function">
+    <a href="#validate/1" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">valid?(input, bool, rules \\ [])</h1>
+    <h1 class="signature" translate="no">validate(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L179" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L46" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -341,17 +305,11 @@ should be considered as not real values.</p><p>Returns a tuple:</p><ul><li><code
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
-
-          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) :: {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()}</pre>
+          <pre translate="no"><span class="attribute">@spec</span> validate(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
 
       </div>
 
-<p>Strict mode will also validate format and avoid known fake ruts likes 1-9
-and less than 6 length ruts.
-Some regex rules can be passed, if any of them match, it will consider
-the rut as invalid.
-strict false is the same as <a href="#valid?/1"><code class="inline">valid?/1</code></a>.</p>
+<p>Executes the rut validations.</p>
   </section>
 </section>
 
@@ -359,6 +317,22 @@ strict false is the same as <a href="#valid?/1"><code class="inline">valid?/1</c
   </section>
 
       <footer class="footer">
+
+          <p>
+            On Hex.pm:
+
+            <span class="line">
+              <a href="https://hex.pm/packages/elixircl_rut/1.0.0" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0" class="line">Preview</a>
+
+                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0/show/lib/rut.ex">(current file)</a>
+
+            </span>
+
+            <button class="line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
 
         <p>
           Built using
