@@ -23,8 +23,8 @@ defmodule ElixirCLRut do
   Formats a string or Rut struct with the Rut format.
 
   ## Example
-    iex> format("1")
-    "1-9"
+      iex> format("1")
+      "1-9"
   """
   @doc since: "1.0.0"
   @spec format(struct() | String.t(), String.t()) :: String.t()

@@ -8,6 +8,10 @@ defmodule ElixirCLRut.Formatter do
 
   @doc """
   Gives format to a normalized RUT.
+
+  ## Examples
+      iex> format(ElixirCLRut.from("20961605-K"))
+      "20.961.605-K"
   """
   @doc since: "1.0.0"
   @spec format(struct(), String.t()) :: String.t()

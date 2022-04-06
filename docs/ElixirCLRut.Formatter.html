@@ -179,7 +179,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">clean(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L40" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L44" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -203,10 +203,10 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="6023457656-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="6023457656-1">)</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="4350638007-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="4350638007-1">)</span><span class="w">
 </span><span class="s">&quot;22282506&quot;</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="6023457656-2">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="6023457656-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="4350638007-2">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="4350638007-2">)</span><span class="w">
 </span><span class="s">&quot;141934325&quot;</span></code></pre>
   </section>
 </section>
@@ -221,7 +221,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">format(input, sep \\ &quot;.&quot;)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L14" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L18" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -239,7 +239,14 @@ Functions
 
       </div>
 
-<p>Gives format to a normalized RUT.</p>
+<p>Gives format to a normalized RUT.</p><h2 id="format/2-examples" class="section-heading">
+  <a href="#format/2-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">examples</p>
+  </a>
+  Examples
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="9020112890-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">from</span><span class="p" data-group-id="9020112890-2">(</span><span class="s">&quot;20961605-K&quot;</span><span class="p" data-group-id="9020112890-2">)</span><span class="p" data-group-id="9020112890-1">)</span><span class="w">
+</span><span class="s">&quot;20.961.605-K&quot;</span></code></pre>
   </section>
 </section>
 <section class="detail" id="normalize/1">
@@ -251,7 +258,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">normalize(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L63" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L67" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -276,11 +283,11 @@ Converts lowercase to uppercase.</p><h2 id="normalize/1-examples" class="section
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="2804128251-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="2804128251-1">)</span><span class="w">
-</span><span class="p" data-group-id="2804128251-2">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="2804128251-2">]</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="6233925263-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="6233925263-1">)</span><span class="w">
+</span><span class="p" data-group-id="6233925263-2">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="6233925263-2">]</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="2804128251-3">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="2804128251-3">)</span><span class="w">
-</span><span class="p" data-group-id="2804128251-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2804128251-4">]</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="6233925263-3">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="6233925263-3">)</span><span class="w">
+</span><span class="p" data-group-id="6233925263-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6233925263-4">]</span></code></pre>
   </section>
 </section>
 

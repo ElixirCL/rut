@@ -58,8 +58,8 @@ defmodule ElixirCLRut.Struct do
       from: String.trim(input),
       checkdigit: checkdigit,
       lastdigit: lastchar,
-      normalized: normalized,
-      dashed?: contains_dash,
+      normalized: normalized_no_checkdigit,
+      dashed?: contains_dash
     }
   end
 end
