@@ -25,4 +25,4 @@ d docs:
 	mix docs
 
 a archive:
-	git archive -o rut.zip HEAD
+	git archive -o code.zip HEAD

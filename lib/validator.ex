@@ -4,21 +4,18 @@ defmodule ElixirCLRut.Validator do
   """
   @moduledoc since: "1.0.0"
 
+  alias ElixirCLRut.Struct, as: Rut
+  alias ElixirCLRut.Validations
+  alias ElixirCLRut.Token
+
   @doc """
-  Returns true if the checkdigit and lastchar are equal.
-
-  ## Examples
-
-      iex> is_valid?("6", "K")
-      false
-
-      iex> is_valid?("6", "6")
-      true
-
+  Validates the ElixirCLRut.Struct with some default
+  validations.
   """
-  @spec is_valid?(String.t(), String.t()) :: boolean()
   @doc since: "1.0.0"
-  def is_valid?(checkdigit, lastchar) do
-    checkdigit === lastchar
+  def validate(%Rut{} = input) do
+    Token.from(input)
+    |> Validations.not_empty()
+    |> Validations.has_valid_checkdigit()
   end
 end

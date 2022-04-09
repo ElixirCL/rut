@@ -4,37 +4,31 @@ defmodule ElixirCLRut.Formatter do
   """
   @moduledoc since: "1.0.0"
 
+  alias ElixirCLRut.Struct, as: Rut
+
   @doc """
   Gives format to a normalized RUT.
 
   ## Examples
-
-      iex> format([2,2,2,8,2,5,0],"6")
-      "2.228.250-6"
-
-      iex> format([1, 4, 1, 9, 3, 4, 3, 2], "5")
-      "14.193.432-5"
-
-      iex> format([1, 4, 1, 9, 3, 4, 3, 2], "5", ",")
-      "14,193,432-5"
-
+      iex> format(ElixirCLRut.from("20961605-K"))
+      "20.961.605-K"
   """
   @doc since: "1.0.0"
-  @spec format(list(), String.t(), String.t()) :: String.t()
-  def format(normalized, checkdigit, sep \\ ".") when is_list(normalized) do
-    formatted = normalized
-    |> Enum.reverse()
-    |> Enum.chunk_every(3)
-    |> Enum.map(& &1 |> Enum.reverse() |> Enum.join())
-    |> Enum.reverse()
-    |> Enum.join(sep)
+  @spec format(struct(), String.t()) :: String.t()
+  def format(%Rut{} = input, sep \\ ".") do
+    formatted =
+      input.normalized
+      |> Enum.reverse()
+      |> Enum.chunk_every(3)
+      |> Enum.map(&(&1 |> Enum.reverse() |> Enum.join()))
+      |> Enum.reverse()
+      |> Enum.join(sep)
 
-    "#{formatted}-#{checkdigit}"
+    "#{formatted}-#{input.checkdigit}"
   end
 
   @doc """
   Removes all chars (except for numbers and letter K) from the RUT.
-  Converts lowercase to uppercase.
 
   ## Examples
 
@@ -53,11 +47,11 @@ defmodule ElixirCLRut.Formatter do
       ~r/[^0-9^k^K]/,
       ""
     )
-    |> String.upcase()
   end
 
   @doc """
   Transforms a RUT string to a list of numbers.
+  Converts lowercase to uppercase.
 
   ## Examples
 
@@ -72,6 +66,7 @@ defmodule ElixirCLRut.Formatter do
   @spec normalize(String.t()) :: String.t()
   def normalize(input) do
     clean(input)
+    |> String.upcase()
     |> String.split("", trim: true)
     |> Enum.map(fn item ->
       case Integer.parse(item) do
