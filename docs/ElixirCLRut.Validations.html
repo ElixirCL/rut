@@ -12,7 +12,7 @@
     <title>ElixirCLRut.Validations — ElixirCLRUT v1.0.0</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-164bc20572.js"></script>
+    <script src="dist/sidebar_items-d517de2ccf.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -256,10 +256,10 @@ is above or equal to the given length. Defaults to length 2.</p><h2 id="length/2
   </a>
   Example
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0877358795-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="0877358795-2">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="0877358795-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="0877358795-3">(</span><span class="p" data-group-id="0877358795-3">)</span><span class="p" data-group-id="0877358795-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8626089456-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="8626089456-2">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="8626089456-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="8626089456-3">(</span><span class="p" data-group-id="8626089456-3">)</span><span class="p" data-group-id="8626089456-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">true</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0877358795-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="0877358795-5">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="0877358795-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="0877358795-6">(</span><span class="mi">3</span><span class="p" data-group-id="0877358795-6">)</span><span class="p" data-group-id="0877358795-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8626089456-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="8626089456-5">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="8626089456-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="8626089456-6">(</span><span class="mi">3</span><span class="p" data-group-id="8626089456-6">)</span><span class="p" data-group-id="8626089456-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">false</span></code></pre>
   </section>
 </section>
@@ -298,10 +298,10 @@ are not jut zeroes.</p><h2 id="not_all_zeroes/1-example" class="section-heading"
   </a>
   Example
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="9707559791-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="9707559791-2">(</span><span class="s">&quot;00000000-0&quot;</span><span class="p" data-group-id="9707559791-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="9707559791-3">(</span><span class="p" data-group-id="9707559791-3">)</span><span class="p" data-group-id="9707559791-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3765909714-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="3765909714-2">(</span><span class="s">&quot;00000000-0&quot;</span><span class="p" data-group-id="3765909714-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="3765909714-3">(</span><span class="p" data-group-id="3765909714-3">)</span><span class="p" data-group-id="3765909714-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">false</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="9707559791-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="9707559791-5">(</span><span class="s">&quot;00000001-9&quot;</span><span class="p" data-group-id="9707559791-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="9707559791-6">(</span><span class="p" data-group-id="9707559791-6">)</span><span class="p" data-group-id="9707559791-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3765909714-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="3765909714-5">(</span><span class="s">&quot;00000001-9&quot;</span><span class="p" data-group-id="3765909714-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="3765909714-6">(</span><span class="p" data-group-id="3765909714-6">)</span><span class="p" data-group-id="3765909714-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">true</span></code></pre>
   </section>
 </section>

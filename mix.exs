@@ -30,9 +30,9 @@ defmodule ElixirCLRut.MixProject do
       homepage_url: "https://hexdocs.pm/elixircl_rut",
       docs: [
         # The main page in the docs
-        main: "ElixirCLRut",
+        main: "EXAMPLES",
         # logo: "https://raw.githubusercontent.com/ElixirCL/elixircl.github.io/main/img/logo.png",
-        extras: ["README.md", "LICENSE.md", "CHANGELOG.md", "EXAMPLES.livemd"],
+        extras: ["README.md", "LICENSE.md", "CHANGELOG.md", "EXAMPLES.livemd", "AUTHORS.md"],
         authors: ["AUTHORS.md"],
         output: "docs"
       ]
@@ -56,9 +56,10 @@ defmodule ElixirCLRut.MixProject do
       name: "elixircl_rut",
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["ElixirCL"],
-      licenses: ["MPL v2.0"],
+      licenses: ["MPL-2.0"],
       links: %{"GitHub" => "https://github.com/ElixirCL/rut"},
-      organization: "elixircl_"
+      # Remove below comment to make the package private
+      # organization: "elixircl_"
     ]
   end
 end
