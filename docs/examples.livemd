@@ -4,7 +4,7 @@
 
 ```elixir
 Mix.install([
-  {:elixircl_rut, git: "https://github.com/ElixirCL/rut.git", branch: "develop"}
+  {:elixircl_rut, git: "https://github.com/ElixirCL/rut.git", branch: "main"}
 ])
 ```
 
