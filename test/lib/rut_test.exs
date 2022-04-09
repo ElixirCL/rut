@@ -5,7 +5,7 @@ defmodule ElixirCLRutTest do
   alias ElixirCLRut, as: Rut
 
   # MARK: - valid? tests
-  describe "valid?" do
+  describe "valid?/1" do
     test "that empty is not valid" do
       assert Rut.valid?("") == false
     end
@@ -20,7 +20,7 @@ defmodule ElixirCLRutTest do
   end
 
   # MARK: - validate tests
-  describe "validate" do
+  describe "validate/1" do
     # MARK: validate = false
 
     test "that empty is not valid" do

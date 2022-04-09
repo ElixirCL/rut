@@ -11,6 +11,11 @@ defmodule ElixirCLRut.Token do
   @doc """
   Initializes a Token struct with valid? true as the default value.
   This token is passed down between validation functions.
+
+  ## Example
+
+      iex> from(ElixirCLRut.from("1-9"))
+      %ElixirCLRut.Token{errors: [], from: %ElixirCLRut.Struct{checkdigit: "9", dashed?: true, from: "1-9", lastdigit: "9", normalized: [1], normalized_with_checkdigit: [1, 9]}, valid?: true}
   """
   @doc since: "1.0.0"
   @spec from(struct()) :: struct()

@@ -1,3 +1,4 @@
+/Users/clsource/Code/elixir/elixircl.github.io/elixircl_rut/docs/examples.livemd
 404.html
 ElixirCLRut.CheckDigit.html
 ElixirCLRut.Formatter.html
@@ -15,8 +16,9 @@ dist/html/fonts/remixicon.svg
 dist/html/fonts/remixicon.ttf
 dist/html/fonts/remixicon.woff
 dist/html/fonts/remixicon.woff2
-dist/search_items-5adf9a2ad3.js
-dist/sidebar_items-ae350f415e.js
+dist/search_items-b85015be2c.js
+dist/sidebar_items-164bc20572.js
+examples.html
 index.html
 license.html
 readme.html

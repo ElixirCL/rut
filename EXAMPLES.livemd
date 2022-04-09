@@ -1,0 +1,71 @@
+# ElixirCLRut Examples
+
+## Installation
+
+```elixir
+Mix.install([
+  {:elixircl_rut, git: "https://github.com/ElixirCL/rut.git", branch: "develop"}
+])
+```
+
+## Custom Validations
+
+Custom Validations are used when you need to specify
+stricter rules than just the normal algorithm validations.
+
+```elixir
+defmodule CustomValidations do
+  alias ElixirCLRut.Token
+
+  def length_above_3(input) do
+    # fun fact: the person with the lowest rut is 10-8
+    case Enum.count(input.from.normalized) < 3 do
+      true -> Token.error(input, :length_less_than_3)
+      false -> input
+    end
+  end
+
+  def not_all_zeroes(input) do
+    # get all the zeroes
+    zeroes = Enum.filter(input.from.normalized, &(&1 == 0))
+
+    # if we have all zeroes then is not valid
+    case zeroes == input.from.normalized do
+      true -> Token.error(input, :all_zeroes)
+      false -> input
+    end
+  end
+end
+```
+
+```elixir
+ElixirCLRut.validate("0-0")
+|> CustomValidations.length_above_3()
+|> CustomValidations.not_all_zeroes()
+```
+
+## valid?
+
+If you are happy with the standard validations you can use
+the quick function `valid?` that will return just a boolean
+
+```elixir
+ElixirCLRut.valid?("1-9")
+```
+
+## format
+
+You can quickly get the format.
+
+```elixir
+# "6.300.948-2"
+ElixirCLRut.format("6,3.0.0,9.48 -2....")
+```
+
+## from
+
+You can get the check digit creating the struct
+
+```elixir
+ElixirCLRut.from("6300948").checkdigit
+```

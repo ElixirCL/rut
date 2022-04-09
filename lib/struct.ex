@@ -9,6 +9,7 @@ defmodule ElixirCLRut.Struct do
     :checkdigit,
     :lastdigit,
     :normalized,
+    :normalized_with_checkdigit,
     :dashed?
   ]
 
@@ -59,6 +60,7 @@ defmodule ElixirCLRut.Struct do
       checkdigit: checkdigit,
       lastdigit: lastchar,
       normalized: normalized_no_checkdigit,
+      normalized_with_checkdigit: normalized,
       dashed?: contains_dash
     }
   end

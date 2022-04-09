@@ -32,7 +32,7 @@ defmodule ElixirCLRut.MixProject do
         # The main page in the docs
         main: "ElixirCLRut",
         # logo: "https://raw.githubusercontent.com/ElixirCL/elixircl.github.io/main/img/logo.png",
-        extras: ["README.md", "LICENSE.md", "CHANGELOG.md"],
+        extras: ["README.md", "LICENSE.md", "CHANGELOG.md", "EXAMPLES.livemd"],
         authors: ["AUTHORS.md"],
         output: "docs"
       ]
