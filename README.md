@@ -1,6 +1,8 @@
 # ElixirCLRut
 
-**TODO: Add description**
+A module that helps with validation and formatting
+of chilean [RUT/RUN identifiers](https://es.wikipedia.org/wiki/Rol_%C3%9Anico_Tributario).
+Made by the [Elixir Chile](https://elixircl.github.io) Community.
 
 ## Installation
 
