@@ -30,7 +30,7 @@ defmodule ElixirCLRut.MixProject do
       homepage_url: "https://hexdocs.pm/elixircl_rut",
       docs: [
         # The main page in the docs
-        main: "EXAMPLES",
+        main: "examples",
         # logo: "https://raw.githubusercontent.com/ElixirCL/elixircl.github.io/main/img/logo.png",
         extras: ["README.md", "LICENSE.md", "CHANGELOG.md", "EXAMPLES.livemd", "AUTHORS.md"],
         authors: ["AUTHORS.md"],
