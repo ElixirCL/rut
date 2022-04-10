@@ -8,6 +8,7 @@ defmodule ElixirCLRut.Struct do
     :from,
     :checkdigit,
     :lastdigit,
+    :lastchar,
     :normalized,
     :normalized_with_checkdigit,
     :dashed?
@@ -24,17 +25,17 @@ defmodule ElixirCLRut.Struct do
   This structure must be passed down to the validator function
   for checking if the _RUT_ is valid.
   """
-  @doc since: "1.0.0"
-  @spec from(String.t()) :: struct()
-  def from(input) when is_binary(input) do
-    contains_dash = String.contains?(input, "-")
+  @doc since: "1.0.1"
+  @spec from(String.t(), boolean()) :: struct()
+  def from(input, includes_checkdigit? \\ false) when is_binary(input) do
+    dashed? = String.contains?(input, "-")
 
     # 1 - First we strip all non valid characters
     normalized = Formatter.normalize(input)
 
-    # 2 - If the string contains a dash - we remove the last char
+    # 2 - If the string includes checkdigit we remove the last char
     normalized_no_checkdigit =
-      case contains_dash do
+      case dashed? or includes_checkdigit? do
         true ->
           CheckDigit.remove(normalized)
 
@@ -45,8 +46,8 @@ defmodule ElixirCLRut.Struct do
     # 3 - Get the check digit
     checkdigit = CheckDigit.get(normalized_no_checkdigit)
 
-    lastchar =
-      case contains_dash do
+    lastdigit =
+      case dashed? or includes_checkdigit? do
         true ->
           to_string(List.last(normalized))
 
@@ -58,10 +59,10 @@ defmodule ElixirCLRut.Struct do
     %Rut{
       from: String.trim(input),
       checkdigit: checkdigit,
-      lastdigit: lastchar,
+      lastdigit: lastdigit,
       normalized: normalized_no_checkdigit,
       normalized_with_checkdigit: normalized,
-      dashed?: contains_dash
+      dashed?: dashed? or includes_checkdigit?
     }
   end
 end

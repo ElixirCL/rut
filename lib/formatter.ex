@@ -13,18 +13,36 @@ defmodule ElixirCLRut.Formatter do
       iex> format(ElixirCLRut.from("20961605-K"))
       "20.961.605-K"
   """
-  @doc since: "1.0.0"
-  @spec format(struct(), String.t()) :: String.t()
-  def format(%Rut{} = input, sep \\ ".") do
-    formatted =
-      input.normalized
-      |> Enum.reverse()
-      |> Enum.chunk_every(3)
+  @doc since: "1.0.1"
+  @spec format(struct(), list()) :: String.t()
+  def format(rut, options \\ [separator: "."])
+
+  def format(%Rut{} = input, options) do
+    formatted = dots(input.normalized, options[:separator])
+    "#{formatted}-#{input.lastdigit}"
+  end
+
+  @doc """
+  Adds dots to a list of rut characters.
+
+  ## Examples
+      iex> dots([2, 0, 9, 6, 1, 6, 0, 5])
+      "20.961.605"
+
+      iex> dots([2, 0, 9, 6, 1, 6, 0, 5], ",")
+      "20,961,605"
+
+      iex> dots([2, 0, 9, 6, 1, 6, 0, 5], ",", 3)
+      "20,961,605"
+  """
+  @doc since: "1.0.1"
+  @spec dots(list(), String.t(), integer()) :: String.t()
+  def dots(list, sep \\ ".", every \\ 3) do
+    list |> Enum.reverse()
+      |> Enum.chunk_every(every)
       |> Enum.map(&(&1 |> Enum.reverse() |> Enum.join()))
       |> Enum.reverse()
       |> Enum.join(sep)
-
-    "#{formatted}-#{input.checkdigit}"
   end
 
   @doc """

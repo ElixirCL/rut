@@ -33,19 +33,33 @@ defmodule ElixirCLRut do
       iex> format("1")
       "1-9"
 
-      iex> format(from("6300948-2"), ",")
+      iex> format("63009482", true)
+      "6.300.948-2"
+
+      iex> format("63009482", dashed?: true, separator: ",")
       "6,300,948-2"
   """
-  @doc since: "1.0.0"
-  @spec format(struct() | String.t(), String.t()) :: String.t()
-  def format(input, sep \\ ".")
+  @doc since: "1.0.1"
+  @spec format(struct() | String.t(), boolean() | list()) :: String.t()
+  def format(input, options \\ [dashed?: false, separator: "."])
 
-  def format(input, sep) when is_binary(input) do
-    Rut.from(input) |> Formatter.format(sep)
+  def format(input, true) when is_binary(input) do
+    Rut.from(input, true) |> Formatter.format()
   end
 
-  def format(%Rut{} = input, sep) do
-    Formatter.format(input, sep)
+  def format(input, options) when is_binary(input) do
+    Rut.from(input, opts(options)[:dashed?]) |> Formatter.format(opts(options))
+  end
+
+  def format(%Rut{} = input, options) do
+    Formatter.format(input, opts(options))
+  end
+
+  defp opts(options) do
+    [
+      dashed?: options[:dashed?] || false,
+      separator: options[:separator] || "."
+    ]
   end
 
   @doc """
