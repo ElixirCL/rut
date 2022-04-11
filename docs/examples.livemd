@@ -56,10 +56,29 @@ ElixirCLRut.valid?("1-9")
 ## format
 
 You can quickly get the format.
+This will append the correct digit if not available.
 
 ```elixir
 # "6.300.948-2"
-ElixirCLRut.format("6,3.0.0,9.48 -2....")
+ElixirCLRut.format("6,3.0.0,9.48....")
+```
+
+You can specify if the rut has the check digit by
+using `format/2` or dashing the digit.
+
+```elixir
+# "6.300.948-2"
+ElixirCLRut.format("6300948-2")
+ElixirCLRut.format("63009482", true)
+```
+
+You can also specify if the rut has the check digit by
+using `dashed?:true` and the separator character
+by passing `separator:` params.
+
+```elixir
+# "6,300,948-2"
+ElixirCLRut.format("63009482", dashed?:true, separator: ",")
 ```
 
 ## from
