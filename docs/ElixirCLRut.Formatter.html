@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.28.3">
-    <meta name="project" content="ElixirCLRUT v1.0.0">
+    <meta name="project" content="ElixirCLRUT v1.0.1">
 
       <meta name="author" content="AUTHORS.md">
 
-    <title>ElixirCLRut.Formatter — ElixirCLRUT v1.0.0</title>
+    <title>ElixirCLRut.Formatter — ElixirCLRUT v1.0.1</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-d517de2ccf.js"></script>
+    <script src="dist/sidebar_items-733cc52ca5.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -68,7 +68,7 @@
 ElixirCLRUT
       </a>
       <strong class="sidebar-projectVersion" translate="no">
-        v1.0.0
+        v1.0.1
       </strong>
     </div>
     <ul class="sidebar-listNav">
@@ -101,7 +101,7 @@ ElixirCLRUT
     </a>
 
   <span translate="no">ElixirCLRut.Formatter</span> 
-  <small class="app-vsn" translate="no">(ElixirCLRUT v1.0.0)</small>
+  <small class="app-vsn" translate="no">(ElixirCLRUT v1.0.1)</small>
 
 </h1>
 
@@ -137,7 +137,17 @@ ElixirCLRUT
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#format/2" translate="no">format(input, sep \\ &quot;.&quot;)</a>
+          <a href="#dots/3" translate="no">dots(list, sep \\ &quot;.&quot;, every \\ 3)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Adds dots to a list of rut characters.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#format/2" translate="no">format(rut, options \\ [separator: &quot;.&quot;])</a>
 
         </div>
 
@@ -179,7 +189,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">clean(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L44" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L62" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -203,11 +213,58 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="9755184022-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="9755184022-1">)</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="6171313510-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="6171313510-1">)</span><span class="w">
 </span><span class="s">&quot;22282506&quot;</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="9755184022-2">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="9755184022-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">clean</span><span class="p" data-group-id="6171313510-2">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="6171313510-2">)</span><span class="w">
 </span><span class="s">&quot;141934325&quot;</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="dots/3">
+
+    <span id="dots/1"></span>
+
+    <span id="dots/2"></span>
+
+  <div class="detail-header">
+    <a href="#dots/3" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">dots(list, sep \\ &quot;.&quot;, every \\ 3)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L40" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+      <span class="note">(since 1.0.1)</span>
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> dots(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>Adds dots to a list of rut characters.</p><h2 id="dots/3-examples" class="section-heading">
+  <a href="#dots/3-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">examples</p>
+  </a>
+  Examples
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">dots</span><span class="p" data-group-id="9359158597-1">(</span><span class="p" data-group-id="9359158597-2">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="9359158597-2">]</span><span class="p" data-group-id="9359158597-1">)</span><span class="w">
+</span><span class="s">&quot;20.961.605&quot;</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">dots</span><span class="p" data-group-id="9359158597-3">(</span><span class="p" data-group-id="9359158597-4">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="9359158597-4">]</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p" data-group-id="9359158597-3">)</span><span class="w">
+</span><span class="s">&quot;20,961,605&quot;</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">dots</span><span class="p" data-group-id="9359158597-5">(</span><span class="p" data-group-id="9359158597-6">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="9359158597-6">]</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="9359158597-5">)</span><span class="w">
+</span><span class="s">&quot;20,961,605&quot;</span></code></pre>
   </section>
 </section>
 <section class="detail" id="format/2">
@@ -219,7 +276,7 @@ Functions
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">format(input, sep \\ &quot;.&quot;)</h1>
+    <h1 class="signature" translate="no">format(rut, options \\ [separator: &quot;.&quot;])</h1>
 
       <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L18" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
@@ -227,7 +284,7 @@ Functions
      </a>
 
 
-      <span class="note">(since 1.0.0)</span>
+      <span class="note">(since 1.0.1)</span>
 
   </div>
 
@@ -237,7 +294,7 @@ Functions
 
           <pre translate="no"><span class="attribute">@spec</span> format(
   <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>(),
-  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()
+  <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()
 ) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
 
       </div>
@@ -248,7 +305,7 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="6251699115-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">from</span><span class="p" data-group-id="6251699115-2">(</span><span class="s">&quot;20961605-K&quot;</span><span class="p" data-group-id="6251699115-2">)</span><span class="p" data-group-id="6251699115-1">)</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="6119995446-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">from</span><span class="p" data-group-id="6119995446-2">(</span><span class="s">&quot;20961605-K&quot;</span><span class="p" data-group-id="6119995446-2">)</span><span class="p" data-group-id="6119995446-1">)</span><span class="w">
 </span><span class="s">&quot;20.961.605-K&quot;</span></code></pre>
   </section>
 </section>
@@ -261,7 +318,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">normalize(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L67" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/formatter.ex#L85" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -286,11 +343,11 @@ Converts lowercase to uppercase.</p><h2 id="normalize/1-examples" class="section
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="5605077810-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="5605077810-1">)</span><span class="w">
-</span><span class="p" data-group-id="5605077810-2">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="5605077810-2">]</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="4350250914-1">(</span><span class="s">&quot;2228250-6&quot;</span><span class="p" data-group-id="4350250914-1">)</span><span class="w">
+</span><span class="p" data-group-id="4350250914-2">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p" data-group-id="4350250914-2">]</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="5605077810-3">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="5605077810-3">)</span><span class="w">
-</span><span class="p" data-group-id="5605077810-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="5605077810-4">]</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">normalize</span><span class="p" data-group-id="4350250914-3">(</span><span class="s">&quot;14.193.432-5&quot;</span><span class="p" data-group-id="4350250914-3">)</span><span class="w">
+</span><span class="p" data-group-id="4350250914-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="4350250914-4">]</span></code></pre>
   </section>
 </section>
 
@@ -303,10 +360,10 @@ Converts lowercase to uppercase.</p><h2 id="normalize/1-examples" class="section
             On Hex.pm:
 
             <span class="line">
-              <a href="https://hex.pm/packages/elixircl_rut/1.0.0" class="line footer-hex-package">Package</a>
-              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0" class="line">Preview</a>
+              <a href="https://hex.pm/packages/elixircl_rut/1.0.1" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.1" class="line">Preview</a>
 
-                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.0/show/lib/formatter.ex">(current file)</a>
+                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.1/show/lib/formatter.ex">(current file)</a>
 
             </span>
 
