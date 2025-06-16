@@ -11,6 +11,7 @@ defmodule ElixirCLRut.Struct do
     :lastchar,
     :normalized,
     :normalized_with_checkdigit,
+    :includes_checkdigit?,
     :dashed?
   ]
 
@@ -49,11 +50,13 @@ defmodule ElixirCLRut.Struct do
     lastdigit =
       case dashed? or includes_checkdigit? do
         true ->
-          to_string(List.last(normalized))
+          List.last(normalized)
 
         false ->
           checkdigit
       end
+      |> to_string()
+      |> String.upcase()
 
     # 6 - Return the structure ready for validation functions
     %Rut{
@@ -61,8 +64,22 @@ defmodule ElixirCLRut.Struct do
       checkdigit: checkdigit,
       lastdigit: lastdigit,
       normalized: normalized_no_checkdigit,
-      normalized_with_checkdigit: normalized,
-      dashed?: dashed? or includes_checkdigit?
+      includes_checkdigit?: includes_checkdigit?,
+      normalized_with_checkdigit:
+        case dashed? or includes_checkdigit? do
+          true ->
+            normalized
+
+          false ->
+            normalized ++
+              [
+                case lastdigit == "K" do
+                  true -> lastdigit
+                  false -> String.to_integer(lastdigit)
+                end
+              ]
+        end,
+      dashed?: dashed?
     }
   end
 end

@@ -15,7 +15,11 @@ defmodule ElixirCLRut.Token do
   ## Example
 
       iex> from(ElixirCLRut.from("1-9"))
-      %ElixirCLRut.Token{errors: [], from: %ElixirCLRut.Struct{checkdigit: "9", dashed?: true, from: "1-9", lastdigit: "9", normalized: [1], normalized_with_checkdigit: [1, 9]}, valid?: true}
+      %ElixirCLRut.Token{errors: [], from: %ElixirCLRut.Struct{checkdigit: "9", dashed?: true, from: "1-9", includes_checkdigit?: true, lastdigit: "9", normalized: [1], normalized_with_checkdigit: [1, 9]}, valid?: true}
+      iex> from(ElixirCLRut.from("20.961.605-K"))
+      %ElixirCLRut.Token{errors: [], from: %ElixirCLRut.Struct{checkdigit: "K", dashed?: true, from: "20.961.605-K", includes_checkdigit?: true, lastdigit: "K", normalized: [2,0,9,6,1,6,0,5], normalized_with_checkdigit: [2,0,9,6,1,6,0,5,"K"]}, valid?: true}
+      iex> from(ElixirCLRut.from("20.961605", false))
+      %ElixirCLRut.Token{errors: [], from: %ElixirCLRut.Struct{checkdigit: "K", dashed?: false, from: "20.961605", includes_checkdigit?: false, lastdigit: "K", normalized: [2,0,9,6,1,6,0,5], normalized_with_checkdigit: [2,0,9,6,1,6,0,5,"K"]}, valid?: true}
   """
   @doc since: "1.0.0"
   @spec from(struct()) :: struct()

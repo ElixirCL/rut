@@ -16,13 +16,28 @@ defmodule ElixirCLRut do
   ## Example
 
       iex> from("1-9")
-      %ElixirCLRut.Struct{checkdigit: "9", dashed?: true, from: "1-9", lastdigit: "9", normalized: [1], normalized_with_checkdigit: [1, 9]}
+      %ElixirCLRut.Struct{checkdigit: "9", dashed?: true, from: "1-9", includes_checkdigit?: true, lastdigit: "9", normalized: [1], normalized_with_checkdigit: [1, 9]}
+
+      iex> from("141231553")
+      %ElixirCLRut.Struct{checkdigit: "3", dashed?: false, from: "141231553", includes_checkdigit?: true, lastdigit: "3", normalized: [1, 4, 1, 2, 3, 1, 5, 5], normalized_with_checkdigit: [1, 4, 1, 2, 3, 1, 5, 5, 3]}
+
+      iex> from("14123155", false)
+      %ElixirCLRut.Struct{checkdigit: "3", dashed?: false, from: "14123155", includes_checkdigit?: false, lastdigit: "3", normalized: [1, 4, 1, 2, 3, 1, 5, 5], normalized_with_checkdigit: [1, 4, 1, 2, 3, 1, 5, 5, 3]}
+
+      iex> from("20.961.605-K")
+      %ElixirCLRut.Struct{checkdigit: "K", dashed?: true, from: "20.961.605-K", includes_checkdigit?: true, lastdigit: "K", normalized: [2, 0, 9, 6, 1, 6, 0, 5], normalized_with_checkdigit: [2, 0, 9, 6, 1, 6, 0, 5, "K"]}
 
   """
   @doc since: "1.0.0"
   @spec from(String.t()) :: struct()
   def from(input) when is_binary(input) do
-    Rut.from(input)
+    Rut.from(input, true)
+  end
+
+  @doc since: "1.0.2"
+  @spec from(String.t(), boolean()) :: struct()
+  def from(input, includes_check_digit) when is_binary(input) do
+    Rut.from(input, includes_check_digit)
   end
 
   @doc """
@@ -44,11 +59,13 @@ defmodule ElixirCLRut do
   def format(input, options \\ [dashed?: false, separator: "."])
 
   def format(input, true) when is_binary(input) do
-    Rut.from(input, true) |> Formatter.format()
+    Rut.from(input, true)
+    |> Formatter.format()
   end
 
   def format(input, options) when is_binary(input) do
-    Rut.from(input, opts(options)[:dashed?]) |> Formatter.format(opts(options))
+    Rut.from(input, opts(options)[:dashed?])
+    |> Formatter.format(opts(options))
   end
 
   def format(%Rut{} = input, options) do

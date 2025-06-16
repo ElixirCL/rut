@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.28.3">
-    <meta name="project" content="ElixirCLRUT v1.0.1">
+    <meta name="project" content="ElixirCLRUT v1.0.2">
 
       <meta name="author" content="AUTHORS.md">
 
-    <title>ElixirCLRut.Validations — ElixirCLRUT v1.0.1</title>
+    <title>ElixirCLRut.Validations — ElixirCLRUT v1.0.2</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-733cc52ca5.js"></script>
+    <script src="dist/sidebar_items-129ba0e40d.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -68,7 +68,7 @@
 ElixirCLRUT
       </a>
       <strong class="sidebar-projectVersion" translate="no">
-        v1.0.1
+        v1.0.2
       </strong>
     </div>
     <ul class="sidebar-listNav">
@@ -101,7 +101,7 @@ ElixirCLRUT
     </a>
 
   <span translate="no">ElixirCLRut.Validations</span> 
-  <small class="app-vsn" translate="no">(ElixirCLRUT v1.0.1)</small>
+  <small class="app-vsn" translate="no">(ElixirCLRUT v1.0.2)</small>
 
 </h1>
 
@@ -127,12 +127,36 @@ ElixirCLRUT
 
       <div class="summary-row">
         <div class="summary-signature">
+          <a href="#equal_or_above_1M/1" translate="no">equal_or_above_1M(token)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Optional validation.
+Validates Rut is above or equal to 1 million. To avoid probably dead people.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#equal_or_below_100M/1" translate="no">equal_or_below_100M(token)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Optional validation.
+Validates Rut is below or equal to 100 million. To avoid probably non existing people.</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
           <a href="#has_valid_checkdigit/1" translate="no">has_valid_checkdigit(token)</a>
 
         </div>
 
           <div class="summary-synopsis"><p>Receives a Token struct and validates checkdigit with lastdigit.
-If they are different it will add :wrong_checkdigit to the errors list.</p></div>
+If they are different it will add :wrong_checkdigit to the errors list.
+iex&gt; has_valid_checkdigit(ElixirCLRut.Token.from(ElixirCLRut.from(&quot;20.961605-C&quot;)))
+%ElixirCLRut.Token{errors: [:wrong_checkdigit], valid?: false, from: %ElixirCLRut.Struct{from: &quot;20.961605-C&quot;, checkdigit: &quot;0&quot;, lastdigit: &quot;5&quot;, lastchar: nil, normalized: [2, 0, 9, 6, 1, 6, 0], normalized_with_checkdigit: [2, 0, 9, 6, 1, 6, 0, 5], includes_checkdigit?: true, dashed?: true}}</p></div>
 
       </div>
 
@@ -167,7 +191,9 @@ are not jut zeroes.</p></div>
         </div>
 
           <div class="summary-synopsis"><p>Receives a Token struct and counts the normalized array,
-if it's empty it will add :value_is_empty to the errors list.</p></div>
+if it's empty it will add :value_is_empty to the errors list.
+iex&gt; not_empty(ElixirCLRut.Token.from(ElixirCLRut.from(&quot;abc&quot;)))
+%ElixirCLRut.Token{errors: [:value_is_empty], from: %ElixirCLRut.Struct{from: &quot;abc&quot;, checkdigit: &quot;0&quot;, lastdigit: &quot;&quot;, lastchar: nil, normalized: [], normalized_with_checkdigit: [], includes_checkdigit?: true, dashed?: false}, valid?: false}</p></div>
 
       </div>
 
@@ -185,6 +211,78 @@ if it's empty it will add :value_is_empty to the errors list.</p></div>
 Functions
     </h1>
     <div class="functions-list">
+<section class="detail" id="equal_or_above_1M/1">
+
+  <div class="detail-header">
+    <a href="#equal_or_above_1M/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">equal_or_above_1M(token)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L101" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> equal_or_above_1M(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
+
+      </div>
+
+<p>Optional validation.
+Validates Rut is above or equal to 1 million. To avoid probably dead people.</p><ul><li>since: &quot;1.0.2&quot;</li></ul><h2 id="equal_or_above_1M/1-example" class="section-heading">
+  <a href="#equal_or_above_1M/1-example" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">example</p>
+  </a>
+  Example
+</h2>
+<p>  iex&gt; (ElixirCLRut.validate(&quot;1.000.000-9&quot;) |&gt; equal_or_above_1M()).valid?
+  true</p>
+  </section>
+</section>
+<section class="detail" id="equal_or_below_100M/1">
+
+  <div class="detail-header">
+    <a href="#equal_or_below_100M/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">equal_or_below_100M(token)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L123" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> equal_or_below_100M(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
+
+      </div>
+
+<p>Optional validation.
+Validates Rut is below or equal to 100 million. To avoid probably non existing people.</p><ul><li>since: &quot;1.0.2&quot;</li></ul><h2 id="equal_or_below_100M/1-example" class="section-heading">
+  <a href="#equal_or_below_100M/1-example" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">example</p>
+  </a>
+  Example
+</h2>
+<p>  iex&gt; (ElixirCLRut.validate(&quot;100.000.000-7&quot;) |&gt; equal_or_below_100M()).valid?
+  true</p>
+  </section>
+</section>
 <section class="detail" id="has_valid_checkdigit/1">
 
   <div class="detail-header">
@@ -194,7 +292,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">has_valid_checkdigit(token)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L28" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L32" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -213,7 +311,9 @@ Functions
       </div>
 
 <p>Receives a Token struct and validates checkdigit with lastdigit.
-If they are different it will add :wrong_checkdigit to the errors list.</p>
+If they are different it will add :wrong_checkdigit to the errors list.
+iex&gt; has_valid_checkdigit(ElixirCLRut.Token.from(ElixirCLRut.from(&quot;20.961605-C&quot;)))
+%ElixirCLRut.Token{errors: [:wrong_checkdigit], valid?: false, from: %ElixirCLRut.Struct{from: &quot;20.961605-C&quot;, checkdigit: &quot;0&quot;, lastdigit: &quot;5&quot;, lastchar: nil, normalized: [2, 0, 9, 6, 1, 6, 0], normalized_with_checkdigit: [2, 0, 9, 6, 1, 6, 0, 5], includes_checkdigit?: true, dashed?: true}}</p>
   </section>
 </section>
 <section class="detail" id="length/2">
@@ -227,7 +327,7 @@ If they are different it will add :wrong_checkdigit to the errors list.</p>
     </a>
     <h1 class="signature" translate="no">length(token, length \\ 2)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L51" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L55" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -256,10 +356,10 @@ is above or equal to the given length. Defaults to length 2.</p><h2 id="length/2
   </a>
   Example
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="2000606333-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="2000606333-2">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="2000606333-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="2000606333-3">(</span><span class="p" data-group-id="2000606333-3">)</span><span class="p" data-group-id="2000606333-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8360961115-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="8360961115-2">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="8360961115-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="8360961115-3">(</span><span class="p" data-group-id="8360961115-3">)</span><span class="p" data-group-id="8360961115-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">true</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="2000606333-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="2000606333-5">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="2000606333-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="2000606333-6">(</span><span class="mi">3</span><span class="p" data-group-id="2000606333-6">)</span><span class="p" data-group-id="2000606333-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8360961115-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="8360961115-5">(</span><span class="s">&quot;00-0&quot;</span><span class="p" data-group-id="8360961115-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">length</span><span class="p" data-group-id="8360961115-6">(</span><span class="mi">3</span><span class="p" data-group-id="8360961115-6">)</span><span class="p" data-group-id="8360961115-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">false</span></code></pre>
   </section>
 </section>
@@ -272,7 +372,7 @@ is above or equal to the given length. Defaults to length 2.</p><h2 id="length/2
     </a>
     <h1 class="signature" translate="no">not_all_zeroes(token)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L75" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L78" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -298,10 +398,10 @@ are not jut zeroes.</p><h2 id="not_all_zeroes/1-example" class="section-heading"
   </a>
   Example
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="2202482592-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="2202482592-2">(</span><span class="s">&quot;00000000-0&quot;</span><span class="p" data-group-id="2202482592-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="2202482592-3">(</span><span class="p" data-group-id="2202482592-3">)</span><span class="p" data-group-id="2202482592-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0961529324-1">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="0961529324-2">(</span><span class="s">&quot;00000000-0&quot;</span><span class="p" data-group-id="0961529324-2">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="0961529324-3">(</span><span class="p" data-group-id="0961529324-3">)</span><span class="p" data-group-id="0961529324-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">false</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="2202482592-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="2202482592-5">(</span><span class="s">&quot;00000001-9&quot;</span><span class="p" data-group-id="2202482592-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="2202482592-6">(</span><span class="p" data-group-id="2202482592-6">)</span><span class="p" data-group-id="2202482592-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0961529324-4">(</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="0961529324-5">(</span><span class="s">&quot;00000001-9&quot;</span><span class="p" data-group-id="0961529324-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">not_all_zeroes</span><span class="p" data-group-id="0961529324-6">(</span><span class="p" data-group-id="0961529324-6">)</span><span class="p" data-group-id="0961529324-4">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">true</span></code></pre>
   </section>
 </section>
@@ -314,7 +414,7 @@ are not jut zeroes.</p><h2 id="not_all_zeroes/1-example" class="section-heading"
     </a>
     <h1 class="signature" translate="no">not_empty(token)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L15" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/validations.ex#L17" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -333,7 +433,9 @@ are not jut zeroes.</p><h2 id="not_all_zeroes/1-example" class="section-heading"
       </div>
 
 <p>Receives a Token struct and counts the normalized array,
-if it's empty it will add :value_is_empty to the errors list.</p>
+if it's empty it will add :value_is_empty to the errors list.
+iex&gt; not_empty(ElixirCLRut.Token.from(ElixirCLRut.from(&quot;abc&quot;)))
+%ElixirCLRut.Token{errors: [:value_is_empty], from: %ElixirCLRut.Struct{from: &quot;abc&quot;, checkdigit: &quot;0&quot;, lastdigit: &quot;&quot;, lastchar: nil, normalized: [], normalized_with_checkdigit: [], includes_checkdigit?: true, dashed?: false}, valid?: false}</p>
   </section>
 </section>
 
@@ -346,10 +448,10 @@ if it's empty it will add :value_is_empty to the errors list.</p>
             On Hex.pm:
 
             <span class="line">
-              <a href="https://hex.pm/packages/elixircl_rut/1.0.1" class="line footer-hex-package">Package</a>
-              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.1" class="line">Preview</a>
+              <a href="https://hex.pm/packages/elixircl_rut/1.0.2" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.2" class="line">Preview</a>
 
-                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.1/show/lib/validations.ex">(current file)</a>
+                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.2/show/lib/validations.ex">(current file)</a>
 
             </span>
 

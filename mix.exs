@@ -1,7 +1,7 @@
 defmodule ElixirCLRut.MixProject do
   use Mix.Project
 
-  @version "1.0.1"
+  @version "1.0.2"
 
   def project do
     [
@@ -57,7 +57,7 @@ defmodule ElixirCLRut.MixProject do
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["ElixirCL"],
       licenses: ["MPL-2.0"],
-      links: %{"GitHub" => "https://github.com/ElixirCL/rut"},
+      links: %{"GitHub" => "https://github.com/ElixirCL/rut"}
       # Remove below comment to make the package private
       # organization: "elixircl_"
     ]

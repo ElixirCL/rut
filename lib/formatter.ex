@@ -12,6 +12,12 @@ defmodule ElixirCLRut.Formatter do
   ## Examples
       iex> format(ElixirCLRut.from("20961605-K"))
       "20.961.605-K"
+      iex> format(ElixirCLRut.from("141231553"))
+      "14.123.155-3"
+      iex> format(ElixirCLRut.from("141231553"), separator: "")
+      "14123155-3"
+      iex> format(ElixirCLRut.from("14123155", false))
+      "14.123.155-3"
   """
   @doc since: "1.0.1"
   @spec format(struct(), list()) :: String.t()
@@ -38,11 +44,12 @@ defmodule ElixirCLRut.Formatter do
   @doc since: "1.0.1"
   @spec dots(list(), String.t(), integer()) :: String.t()
   def dots(list, sep \\ ".", every \\ 3) do
-    list |> Enum.reverse()
-      |> Enum.chunk_every(every)
-      |> Enum.map(&(&1 |> Enum.reverse() |> Enum.join()))
-      |> Enum.reverse()
-      |> Enum.join(sep)
+    list
+    |> Enum.reverse()
+    |> Enum.chunk_every(every)
+    |> Enum.map(&(&1 |> Enum.reverse() |> Enum.join()))
+    |> Enum.reverse()
+    |> Enum.join(sep)
   end
 
   @doc """

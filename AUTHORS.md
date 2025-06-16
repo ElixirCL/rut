@@ -8,5 +8,6 @@ _ElixirCLRut_ is a collective work with contributions from many people, includin
 * Matías Reyes (@matreyes)
 * Benjamín Silva
 * Cristían Arenas (@ninoscript)
+* Miguel Michelson (@michelson)
 
 Thanks!
