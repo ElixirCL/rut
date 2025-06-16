@@ -20,7 +20,7 @@ defmodule ElixirCLRut.Formatter do
       "14.123.155-3"
   """
   @doc since: "1.0.1"
-  @spec format(struct(), list()) :: String.t()
+  @spec format(struct(), list()) :: String.t() | :error
   def format(rut, options \\ [separator: "."])
 
   def format(%Rut{} = input, options) do
