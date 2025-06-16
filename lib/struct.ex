@@ -65,21 +65,27 @@ defmodule ElixirCLRut.Struct do
       lastdigit: lastdigit,
       normalized: normalized_no_checkdigit,
       includes_checkdigit?: includes_checkdigit?,
+      dashed?: dashed?,
       normalized_with_checkdigit:
-        case dashed? or includes_checkdigit? do
+        case checkdigit == :error do
           true ->
-            normalized
+            []
 
           false ->
-            normalized ++
-              [
-                case lastdigit == "K" do
-                  true -> lastdigit
-                  false -> String.to_integer(lastdigit)
-                end
-              ]
-        end,
-      dashed?: dashed?
+            case dashed? or includes_checkdigit? do
+              true ->
+                normalized
+
+              false ->
+                normalized ++
+                  [
+                    case lastdigit == "K" do
+                      true -> lastdigit
+                      false -> String.to_integer(lastdigit)
+                    end
+                  ]
+            end
+        end
     }
   end
 end

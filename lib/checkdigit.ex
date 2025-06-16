@@ -30,21 +30,28 @@ defmodule ElixirCLRut.CheckDigit do
       "6"
   """
   @doc since: "1.0.0"
-  @spec get(list()) :: String.t()
+  @spec get(list()) :: String.t() | :error
   def get(normalized) when is_list(normalized) do
     # from https://discord.com/channels/713354039903125594/713354039903125597/958121736379961384
-    mod =
-      normalized
-      |> Enum.reverse()
-      |> Enum.with_index()
-      |> Enum.map(fn {digit, index} -> digit * (rem(index, 6) + 2) end)
-      |> Enum.sum()
-      |> rem(11)
 
-    case 11 - mod do
-      10 -> "K"
-      11 -> "0"
-      num -> Integer.to_string(num)
+    case Integer.parse(Enum.join(normalized)) do
+      {_, ""} ->
+        mod =
+          normalized
+          |> Enum.reverse()
+          |> Enum.with_index()
+          |> Enum.map(fn {digit, index} -> digit * (rem(index, 6) + 2) end)
+          |> Enum.sum()
+          |> rem(11)
+
+        case 11 - mod do
+          10 -> "K"
+          11 -> "0"
+          num -> Integer.to_string(num)
+        end
+
+      _not_numeric ->
+        :error
     end
   end
 end

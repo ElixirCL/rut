@@ -27,3 +27,4 @@ elixircl_rut-*.tar
 
 .DS_Store
 code.zip
+docs/.build

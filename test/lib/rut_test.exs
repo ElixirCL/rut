@@ -11,7 +11,15 @@ defmodule ElixirCLRutTest do
     end
 
     test "that one length is valid" do
-      assert Rut.valid?("1") == true
+      assert Rut.valid?("1-9") == true
+    end
+
+    test "that one number is not valid" do
+      assert Rut.valid?("1") == false
+    end
+
+    test "that 1k-9 is not valid" do
+      assert Rut.valid?("1k-9") == false
     end
 
     test "that a wrong rut is not valid" do
@@ -69,9 +77,9 @@ defmodule ElixirCLRutTest do
     end
 
     # MARK: validate = true
-    test "that length one is valid" do
+    test "that length one is not valid" do
       %_{valid?: valid?} = Rut.validate("1")
-      assert valid? == true
+      assert valid? == false
     end
 
     test "that length two is valid" do

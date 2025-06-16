@@ -10,7 +10,7 @@ defmodule ElixirCLRut.Validations do
   Receives a Token struct and counts the normalized array,
   if it's empty it will add :value_is_empty to the errors list.
   iex> not_empty(ElixirCLRut.Token.from(ElixirCLRut.from("abc")))
-  %ElixirCLRut.Token{errors: [:value_is_empty], from: %ElixirCLRut.Struct{from: "abc", checkdigit: "0", lastdigit: "", lastchar: nil, normalized: [], normalized_with_checkdigit: [], includes_checkdigit?: true, dashed?: false}, valid?: false}
+  %ElixirCLRut.Token{errors: [:value_is_empty], from: %ElixirCLRut.Struct{from: "abc", checkdigit: :error, lastdigit: "", lastchar: nil, normalized: [], normalized_with_checkdigit: [], includes_checkdigit?: true, dashed?: false}, valid?: false}
   """
   @doc since: "1.0.0"
   @spec not_empty(struct()) :: struct()

@@ -24,8 +24,14 @@ defmodule ElixirCLRut.Formatter do
   def format(rut, options \\ [separator: "."])
 
   def format(%Rut{} = input, options) do
-    formatted = dots(input.normalized, options[:separator])
-    "#{formatted}-#{input.lastdigit}"
+    case input.checkdigit == :error do
+      true ->
+        :error
+
+      false ->
+        formatted = dots(input.normalized, options[:separator])
+        "#{formatted}-#{input.lastdigit}"
+    end
   end
 
   @doc """

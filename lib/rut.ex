@@ -45,21 +45,32 @@ defmodule ElixirCLRut do
 
   ## Examples
 
-      iex> format("1")
+      iex> format("1", false)
       "1-9"
+
+      iex> format("K", false)
+      :error
 
       iex> format("63009482", true)
       "6.300.948-2"
 
-      iex> format("63009482", dashed?: true, separator: ",")
+      iex> format("6300948-2", dashed?: true, separator: ",")
       "6,300,948-2"
+
+      iex> format("141231553")
+      "14.123.155-3"
   """
   @doc since: "1.0.1"
-  @spec format(struct() | String.t(), boolean() | list()) :: String.t()
-  def format(input, options \\ [dashed?: false, separator: "."])
+  @spec format(struct() | String.t(), boolean() | keyword()) :: String.t()
+  def format(input, options \\ [dashed?: true, separator: "."])
 
   def format(input, true) when is_binary(input) do
     Rut.from(input, true)
+    |> Formatter.format()
+  end
+
+  def format(input, false) when is_binary(input) do
+    Rut.from(input, false)
     |> Formatter.format()
   end
 
@@ -72,10 +83,17 @@ defmodule ElixirCLRut do
     Formatter.format(input, opts(options))
   end
 
-  defp opts(options) do
+  defp opts(options) when is_list(options) do
     [
-      dashed?: options[:dashed?] || false,
-      separator: options[:separator] || "."
+      dashed?: Keyword.get(options, :dashed?, true),
+      separator: Keyword.get(options, :separator, ".")
+    ]
+  end
+
+  defp opts(dashed?) do
+    [
+      dashed?: dashed?,
+      separator: "."
     ]
   end
 
@@ -84,19 +102,24 @@ defmodule ElixirCLRut do
 
   ## Examples
 
-      iex> validate("1").valid?
+      iex> validate("1-9").valid?
       true
+
+      iex> validate("1").valid?
+      false
 
       iex> validate("6300948-1").valid?
       false
   """
   @doc since: "1.0.0"
-  @spec validate(struct() | String.t()) :: struct()
-  def validate(input) when is_binary(input) do
-    Rut.from(input) |> Validator.validate()
+  @spec validate(struct() | String.t(), boolean()) :: struct()
+  def validate(input, includes_checkdigit \\ true)
+
+  def validate(input, includes_checkdigit) when is_binary(input) do
+    Rut.from(input, includes_checkdigit) |> Validator.validate()
   end
 
-  def validate(%Rut{} = input) do
+  def validate(input, _) do
     Validator.validate(input)
   end
 
@@ -106,8 +129,11 @@ defmodule ElixirCLRut do
 
   ## Examples
 
-      iex> valid?("1")
+      iex> valid?("1-9")
       true
+
+      iex> valid?("1k-9")
+      false
 
       iex> valid?("6300948-1")
       false
