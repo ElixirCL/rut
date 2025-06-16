@@ -33,9 +33,14 @@ defmodule ElixirCLRut.Struct do
     # 1 - First we strip all non valid characters
     normalized = Formatter.normalize(input)
 
-    # 2 - If the string includes checkdigit we remove the last char
+    # 2 - Determine if the last char is a check digit (handle 8+1 case)
+    treat_last_as_checkdigit =
+      dashed? or
+        includes_checkdigit? or
+        (length(normalized) == 9 and Enum.all?(Enum.slice(normalized, 0, 8), &is_integer/1))
+
     normalized_no_checkdigit =
-      case dashed? or includes_checkdigit? do
+      case treat_last_as_checkdigit do
         true ->
           CheckDigit.remove(normalized)
 
@@ -47,7 +52,7 @@ defmodule ElixirCLRut.Struct do
     checkdigit = CheckDigit.get(normalized_no_checkdigit)
 
     lastdigit =
-      case dashed? or includes_checkdigit? do
+      case treat_last_as_checkdigit do
         true ->
           to_string(List.last(normalized))
 
@@ -62,7 +67,7 @@ defmodule ElixirCLRut.Struct do
       lastdigit: lastdigit,
       normalized: normalized_no_checkdigit,
       normalized_with_checkdigit: normalized,
-      dashed?: dashed? or includes_checkdigit?
+      dashed?: treat_last_as_checkdigit
     }
   end
 end
