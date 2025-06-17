@@ -8,6 +8,83 @@ Mix.install([
 ])
 ```
 
+## valid?
+
+If you are happy with the standard validations you can use
+the quick function `valid?` that will return just a boolean
+
+```elixir
+ElixirCLRut.valid?("1-9")
+```
+
+## format
+
+You can quickly get the format.
+
+```elixir
+# "6.300.948-2"
+ElixirCLRut.format("6,3.0.0,9.48.2...")
+```
+
+It will assume the rut has digit. Otherwise you can pass false
+to include it.
+using `format/2` or dashing the digit.
+
+```elixir
+# "6.300.948-2"
+ElixirCLRut.format("6300948-2")
+```
+
+```elixir
+ElixirCLRut.format("6300948", false)
+```
+
+Pass the separator too
+
+```elixir
+# "6,300,948-2"
+ElixirCLRut.format("63009482", ",")
+```
+
+You can also specify if the rut has the check digit by
+using `dashed?:true` and the separator character
+by passing `separator:` params.
+
+```elixir
+# "6,300,948-2"
+ElixirCLRut.format("63009482", dashed?:true, separator: ",")
+```
+
+## from
+
+You can get the check digit creating the struct. It will assume it includes
+the checkdigit. So you must pass `false` to calculate it.
+
+```elixir
+ElixirCLRut.from("6300948", false).checkdigit
+```
+
+Or use the wrapper
+
+```elixir
+# 2
+ElixirCLRut.dv("6300948", false)
+```
+
+```elixir
+# 2
+ElixirCLRut.dv("63009482")
+```
+
+
+## clean
+
+You can clean the rut too.
+
+```elixir
+ElixirCLRut.clean("63fk00s948-2")
+```
+
 ## Custom Validations
 
 Custom Validations are used when you need to specify
@@ -62,74 +139,4 @@ ElixirCLRut.valid("1000000-9")
 ElixirCLRut.valid("100.000.001-5")
 |> ElixirCLRut.Validations.equal_or_above_1M()
 |> ElixirCLRut.Validations.equal_or_below_100M()
-```
-
-## valid?
-
-If you are happy with the standard validations you can use
-the quick function `valid?` that will return just a boolean
-
-```elixir
-ElixirCLRut.valid?("1-9")
-```
-
-## format
-
-You can quickly get the format.
-
-```elixir
-# "6.300.948-2"
-ElixirCLRut.format("6,3.0.0,9.48.2...")
-```
-
-It will assume the rut has digit. Otherwise you can pass false
-to include it.
-using `format/2` or dashing the digit.
-
-```elixir
-# "6.300.948-2"
-ElixirCLRut.format("6300948-2")
-```
-
-```elixir
-ElixirCLRut.format("6300948", false)
-```
-
-You can also specify if the rut has the check digit by
-using `dashed?:true` and the separator character
-by passing `separator:` params.
-
-```elixir
-# "6,300,948-2"
-ElixirCLRut.format("63009482", dashed?:true, separator: ",")
-```
-
-## from
-
-You can get the check digit creating the struct. It will assume it includes
-the checkdigit. So you must pass `false` to calculate it.
-
-```elixir
-ElixirCLRut.from("6300948", false).checkdigit
-```
-
-Or use the wrapper
-
-```elixir
-# 2
-ElixirCLRut.dv("6300948", false)
-```
-
-```elixir
-# 2
-ElixirCLRut.dv("63009482")
-```
-
-
-## clean
-
-You can clean the rut too.
-
-```elixir
-ElixirCLRut.format("63fk00s948-2")
 ```
