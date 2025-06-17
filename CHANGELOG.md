@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Romantic Versioning](http://sentimentalversioning.org/).
 
+## [1.0.3](https://github.com/elixircl/rut/releases/tag/v1.0.2) - 2025-06-17
+
+### Features
+Added  `checkdigit` helper function.
+
 ## [1.0.2](https://github.com/elixircl/rut/releases/tag/v1.0.2) - 2025-06-16
 ### Bugs
 - Assume contains checkdigit in Ruts.

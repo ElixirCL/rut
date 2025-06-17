@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.28.3">
-    <meta name="project" content="ElixirCLRUT v1.0.2">
+    <meta name="project" content="ElixirCLRUT v1.0.3">
 
       <meta name="author" content="AUTHORS.md">
 
-    <title>ElixirCLRut Examples — ElixirCLRUT v1.0.2</title>
+    <title>ElixirCLRut Examples — ElixirCLRUT v1.0.3</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-9a197d577a.js"></script>
+    <script src="dist/sidebar_items-a82b0d7693.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -68,7 +68,7 @@
 ElixirCLRUT
       </a>
       <strong class="sidebar-projectVersion" translate="no">
-        v1.0.2
+        v1.0.3
       </strong>
     </div>
     <ul class="sidebar-listNav">
@@ -115,66 +115,80 @@ ElixirCLRUT
   </a>
   Installation
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="nc">Mix</span><span class="o">.</span><span class="n">install</span><span class="p" data-group-id="3718415162-1">(</span><span class="p" data-group-id="3718415162-2">[</span><span class="w">
-  </span><span class="p" data-group-id="3718415162-3">{</span><span class="ss">:elixircl_rut</span><span class="p">,</span><span class="w"> </span><span class="ss">git</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://github.com/ElixirCL/rut.git&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">branch</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;main&quot;</span><span class="p" data-group-id="3718415162-3">}</span><span class="w">
-</span><span class="p" data-group-id="3718415162-2">]</span><span class="p" data-group-id="3718415162-1">)</span></code></pre><h2 id="custom-validations" class="section-heading">
+<pre><code class="makeup elixir" translate="no"><span class="nc">Mix</span><span class="o">.</span><span class="n">install</span><span class="p" data-group-id="9830290656-1">(</span><span class="p" data-group-id="9830290656-2">[</span><span class="w">
+  </span><span class="p" data-group-id="9830290656-3">{</span><span class="ss">:elixircl_rut</span><span class="p">,</span><span class="w"> </span><span class="ss">git</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://github.com/ElixirCL/rut.git&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">branch</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;main&quot;</span><span class="p" data-group-id="9830290656-3">}</span><span class="w">
+</span><span class="p" data-group-id="9830290656-2">]</span><span class="p" data-group-id="9830290656-1">)</span></code></pre><h2 id="custom-validations" class="section-heading">
   <a href="#custom-validations" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">custom-validations</p>
   </a>
   Custom Validations
 </h2>
 <p>Custom Validations are used when you need to specify
-stricter rules than just the normal algorithm validations.</p><pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">CustomValidations</span><span class="w"> </span><span class="k" data-group-id="1874574773-1">do</span><span class="w">
+stricter rules than just the normal algorithm validations.</p><pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">CustomValidations</span><span class="w"> </span><span class="k" data-group-id="5095595423-1">do</span><span class="w">
   </span><span class="kn">alias</span><span class="w"> </span><span class="nc">ElixirCLRut.Token</span><span class="w">
 
-  </span><span class="kd">def</span><span class="w"> </span><span class="nf">length_above_3</span><span class="p" data-group-id="1874574773-2">(</span><span class="n">input</span><span class="p" data-group-id="1874574773-2">)</span><span class="w"> </span><span class="k" data-group-id="1874574773-3">do</span><span class="w">
+  </span><span class="kd">def</span><span class="w"> </span><span class="nf">length_above_3</span><span class="p" data-group-id="5095595423-2">(</span><span class="n">input</span><span class="p" data-group-id="5095595423-2">)</span><span class="w"> </span><span class="k" data-group-id="5095595423-3">do</span><span class="w">
     </span><span class="c1"># fun fact: the person with the lowest rut is 10-8</span><span class="w">
-    </span><span class="k">case</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">count</span><span class="p" data-group-id="1874574773-4">(</span><span class="n">input</span><span class="o">.</span><span class="n">from</span><span class="o">.</span><span class="n">normalized</span><span class="p" data-group-id="1874574773-4">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k" data-group-id="1874574773-5">do</span><span class="w">
-      </span><span class="no">true</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">Token</span><span class="o">.</span><span class="n">error</span><span class="p" data-group-id="1874574773-6">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="ss">:length_less_than_3</span><span class="p" data-group-id="1874574773-6">)</span><span class="w">
+    </span><span class="k">case</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">count</span><span class="p" data-group-id="5095595423-4">(</span><span class="n">input</span><span class="o">.</span><span class="n">from</span><span class="o">.</span><span class="n">normalized</span><span class="p" data-group-id="5095595423-4">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k" data-group-id="5095595423-5">do</span><span class="w">
+      </span><span class="no">true</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">Token</span><span class="o">.</span><span class="n">error</span><span class="p" data-group-id="5095595423-6">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="ss">:length_less_than_3</span><span class="p" data-group-id="5095595423-6">)</span><span class="w">
       </span><span class="no">false</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">input</span><span class="w">
-    </span><span class="k" data-group-id="1874574773-5">end</span><span class="w">
-  </span><span class="k" data-group-id="1874574773-3">end</span><span class="w">
+    </span><span class="k" data-group-id="5095595423-5">end</span><span class="w">
+  </span><span class="k" data-group-id="5095595423-3">end</span><span class="w">
 
-  </span><span class="kd">def</span><span class="w"> </span><span class="nf">not_all_zeroes</span><span class="p" data-group-id="1874574773-7">(</span><span class="n">input</span><span class="p" data-group-id="1874574773-7">)</span><span class="w"> </span><span class="k" data-group-id="1874574773-8">do</span><span class="w">
+  </span><span class="kd">def</span><span class="w"> </span><span class="nf">not_all_zeroes</span><span class="p" data-group-id="5095595423-7">(</span><span class="n">input</span><span class="p" data-group-id="5095595423-7">)</span><span class="w"> </span><span class="k" data-group-id="5095595423-8">do</span><span class="w">
     </span><span class="c1"># get all the zeroes</span><span class="w">
-    </span><span class="n">zeroes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">filter</span><span class="p" data-group-id="1874574773-9">(</span><span class="n">input</span><span class="o">.</span><span class="n">from</span><span class="o">.</span><span class="n">normalized</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p" data-group-id="1874574773-10">(</span><span class="ni">&amp;1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="1874574773-10">)</span><span class="p" data-group-id="1874574773-9">)</span><span class="w">
+    </span><span class="n">zeroes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Enum</span><span class="o">.</span><span class="n">filter</span><span class="p" data-group-id="5095595423-9">(</span><span class="n">input</span><span class="o">.</span><span class="n">from</span><span class="o">.</span><span class="n">normalized</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p" data-group-id="5095595423-10">(</span><span class="ni">&amp;1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p" data-group-id="5095595423-10">)</span><span class="p" data-group-id="5095595423-9">)</span><span class="w">
 
     </span><span class="c1"># if we have all zeroes then is not valid</span><span class="w">
-    </span><span class="k">case</span><span class="w"> </span><span class="n">zeroes</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">input</span><span class="o">.</span><span class="n">from</span><span class="o">.</span><span class="n">normalized</span><span class="w"> </span><span class="k" data-group-id="1874574773-11">do</span><span class="w">
-      </span><span class="no">true</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">Token</span><span class="o">.</span><span class="n">error</span><span class="p" data-group-id="1874574773-12">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="ss">:all_zeroes</span><span class="p" data-group-id="1874574773-12">)</span><span class="w">
+    </span><span class="k">case</span><span class="w"> </span><span class="n">zeroes</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">input</span><span class="o">.</span><span class="n">from</span><span class="o">.</span><span class="n">normalized</span><span class="w"> </span><span class="k" data-group-id="5095595423-11">do</span><span class="w">
+      </span><span class="no">true</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">Token</span><span class="o">.</span><span class="n">error</span><span class="p" data-group-id="5095595423-12">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="ss">:all_zeroes</span><span class="p" data-group-id="5095595423-12">)</span><span class="w">
       </span><span class="no">false</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">input</span><span class="w">
-    </span><span class="k" data-group-id="1874574773-11">end</span><span class="w">
-  </span><span class="k" data-group-id="1874574773-8">end</span><span class="w">
-</span><span class="k" data-group-id="1874574773-1">end</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">validate</span><span class="p" data-group-id="2163312543-1">(</span><span class="s">&quot;0-0&quot;</span><span class="p" data-group-id="2163312543-1">)</span><span class="w">
-</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">CustomValidations</span><span class="o">.</span><span class="n">length_above_3</span><span class="p" data-group-id="2163312543-2">(</span><span class="p" data-group-id="2163312543-2">)</span><span class="w">
-</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">CustomValidations</span><span class="o">.</span><span class="n">not_all_zeroes</span><span class="p" data-group-id="2163312543-3">(</span><span class="p" data-group-id="2163312543-3">)</span></code></pre><h2 id="valid" class="section-heading">
+    </span><span class="k" data-group-id="5095595423-11">end</span><span class="w">
+  </span><span class="k" data-group-id="5095595423-8">end</span><span class="w">
+</span><span class="k" data-group-id="5095595423-1">end</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">valid</span><span class="p" data-group-id="8110599053-1">(</span><span class="s">&quot;0-0&quot;</span><span class="p" data-group-id="8110599053-1">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">CustomValidations</span><span class="o">.</span><span class="n">length_above_3</span><span class="p" data-group-id="8110599053-2">(</span><span class="p" data-group-id="8110599053-2">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">CustomValidations</span><span class="o">.</span><span class="n">not_all_zeroes</span><span class="p" data-group-id="8110599053-3">(</span><span class="p" data-group-id="8110599053-3">)</span></code></pre><p>Check the optional validations</p><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">valid</span><span class="p" data-group-id="1703756836-1">(</span><span class="s">&quot;1-9&quot;</span><span class="p" data-group-id="1703756836-1">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">equal_or_above_1M</span><span class="p" data-group-id="1703756836-2">(</span><span class="p" data-group-id="1703756836-2">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">equal_or_below_100M</span><span class="p" data-group-id="1703756836-3">(</span><span class="p" data-group-id="1703756836-3">)</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">valid</span><span class="p" data-group-id="7974783264-1">(</span><span class="s">&quot;1000000-9&quot;</span><span class="p" data-group-id="7974783264-1">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">equal_or_above_1M</span><span class="p" data-group-id="7974783264-2">(</span><span class="p" data-group-id="7974783264-2">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">equal_or_below_100M</span><span class="p" data-group-id="7974783264-3">(</span><span class="p" data-group-id="7974783264-3">)</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">valid</span><span class="p" data-group-id="1565372217-1">(</span><span class="s">&quot;100.000.001-5&quot;</span><span class="p" data-group-id="1565372217-1">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">equal_or_above_1M</span><span class="p" data-group-id="1565372217-2">(</span><span class="p" data-group-id="1565372217-2">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">ElixirCLRut.Validations</span><span class="o">.</span><span class="n">equal_or_below_100M</span><span class="p" data-group-id="1565372217-3">(</span><span class="p" data-group-id="1565372217-3">)</span></code></pre><h2 id="valid" class="section-heading">
   <a href="#valid" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">valid</p>
   </a>
   valid?
 </h2>
 <p>If you are happy with the standard validations you can use
-the quick function <code class="inline">valid?</code> that will return just a boolean</p><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">valid?</span><span class="p" data-group-id="2359931887-1">(</span><span class="s">&quot;1-9&quot;</span><span class="p" data-group-id="2359931887-1">)</span></code></pre><h2 id="format" class="section-heading">
+the quick function <code class="inline">valid?</code> that will return just a boolean</p><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">valid?</span><span class="p" data-group-id="3269246920-1">(</span><span class="s">&quot;1-9&quot;</span><span class="p" data-group-id="3269246920-1">)</span></code></pre><h2 id="format" class="section-heading">
   <a href="#format" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">format</p>
   </a>
   format
 </h2>
-<p>You can quickly get the format.
-This will append the correct digit if not available.</p><pre><code class="makeup elixir" translate="no"><span class="c1"># &quot;6.300.948-2&quot;</span><span class="w">
-</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="1514948362-1">(</span><span class="s">&quot;6,3.0.0,9.48....&quot;</span><span class="p" data-group-id="1514948362-1">)</span></code></pre><p>You can specify if the rut has the check digit by
+<p>You can quickly get the format.</p><pre><code class="makeup elixir" translate="no"><span class="c1"># &quot;6.300.948-2&quot;</span><span class="w">
+</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="7500516012-1">(</span><span class="s">&quot;6,3.0.0,9.48.2...&quot;</span><span class="p" data-group-id="7500516012-1">)</span></code></pre><p>It will assume the rut has digit. Otherwise you can pass false
+to include it.
 using <code class="inline">format/2</code> or dashing the digit.</p><pre><code class="makeup elixir" translate="no"><span class="c1"># &quot;6.300.948-2&quot;</span><span class="w">
-</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="4773140021-1">(</span><span class="s">&quot;6300948-2&quot;</span><span class="p" data-group-id="4773140021-1">)</span><span class="w">
-</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="4773140021-2">(</span><span class="s">&quot;63009482&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="4773140021-2">)</span></code></pre><p>You can also specify if the rut has the check digit by
+</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="9497494682-1">(</span><span class="s">&quot;6300948-2&quot;</span><span class="p" data-group-id="9497494682-1">)</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="8155785770-1">(</span><span class="s">&quot;6300948&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="8155785770-1">)</span></code></pre><p>You can also specify if the rut has the check digit by
 using <code class="inline">dashed?:true</code> and the separator character
 by passing <code class="inline">separator:</code> params.</p><pre><code class="makeup elixir" translate="no"><span class="c1"># &quot;6,300,948-2&quot;</span><span class="w">
-</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="8531845072-1">(</span><span class="s">&quot;63009482&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dashed?</span><span class="ss">:true</span><span class="p">,</span><span class="w"> </span><span class="ss">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p" data-group-id="8531845072-1">)</span></code></pre><h2 id="from" class="section-heading">
+</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="1720764592-1">(</span><span class="s">&quot;63009482&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dashed?</span><span class="ss">:true</span><span class="p">,</span><span class="w"> </span><span class="ss">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p" data-group-id="1720764592-1">)</span></code></pre><h2 id="from" class="section-heading">
   <a href="#from" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">from</p>
   </a>
   from
 </h2>
-<p>You can get the check digit creating the struct</p><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">from</span><span class="p" data-group-id="0585938206-1">(</span><span class="s">&quot;6300948&quot;</span><span class="p" data-group-id="0585938206-1">)</span><span class="o">.</span><span class="n">checkdigit</span></code></pre>
+<p>You can get the check digit creating the struct. It will assume it includes
+the checkdigit. So you must pass <code class="inline">false</code> to calculate it.</p><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">from</span><span class="p" data-group-id="3110714237-1">(</span><span class="s">&quot;6300948&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="3110714237-1">)</span><span class="o">.</span><span class="n">checkdigit</span></code></pre><p>Or use the wrapper</p><pre><code class="makeup elixir" translate="no"><span class="c1"># 2</span><span class="w">
+</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">dv</span><span class="p" data-group-id="8262426443-1">(</span><span class="s">&quot;6300948&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="8262426443-1">)</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="c1"># 2</span><span class="w">
+</span><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">dv</span><span class="p" data-group-id="5110458133-1">(</span><span class="s">&quot;63009482&quot;</span><span class="p" data-group-id="5110458133-1">)</span></code></pre><h2 id="clean" class="section-heading">
+  <a href="#clean" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">clean</p>
+  </a>
+  clean
+</h2>
+<p>You can clean the rut too.</p><pre><code class="makeup elixir" translate="no"><span class="nc">ElixirCLRut</span><span class="o">.</span><span class="n">format</span><span class="p" data-group-id="8663096157-1">(</span><span class="s">&quot;63fk00s948-2&quot;</span><span class="p" data-group-id="8663096157-1">)</span></code></pre>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
@@ -208,10 +222,10 @@ ElixirCLRut Authors
             On Hex.pm:
 
             <span class="line">
-              <a href="https://hex.pm/packages/elixircl_rut/1.0.2" class="line footer-hex-package">Package</a>
-              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.2" class="line">Preview</a>
+              <a href="https://hex.pm/packages/elixircl_rut/1.0.3" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.3" class="line">Preview</a>
 
-                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.2/show/EXAMPLES.livemd">(current file)</a>
+                <a href="https://preview.hex.pm/preview/elixircl_rut/1.0.3/show/EXAMPLES.livemd">(current file)</a>
 
             </span>
 

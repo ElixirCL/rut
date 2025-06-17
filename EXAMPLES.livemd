@@ -106,12 +106,25 @@ ElixirCLRut.format("63009482", dashed?:true, separator: ",")
 
 ## from
 
-You can get the check digit creating the struct. It will assume it includes 
+You can get the check digit creating the struct. It will assume it includes
 the checkdigit. So you must pass `false` to calculate it.
 
 ```elixir
 ElixirCLRut.from("6300948", false).checkdigit
 ```
+
+Or use the wrapper
+
+```elixir
+# 2
+ElixirCLRut.dv("6300948", false)
+```
+
+```elixir
+# 2
+ElixirCLRut.dv("63009482")
+```
+
 
 ## clean
 

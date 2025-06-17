@@ -12,10 +12,12 @@ by adding `elixircl_rut` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:elixircl_rut, "~> 1.0.2"}
+    {:elixircl_rut, "~> 1.0.3"}
   ]
 end
 ```
+
+Check [EXAMPLES.livemd](EXAMPLES.livemd) for usage examples.
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
