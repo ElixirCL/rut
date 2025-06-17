@@ -11,6 +11,15 @@ defmodule ElixirCLRut do
   alias ElixirCLRut.Formatter
 
   @doc """
+  Cleans a RUT
+  - since: "1.0.2"
+  """
+  @spec clean(String.t()) :: String.t()
+  def clean(input) when is_binary(input) do
+    Formatter.clean(input)
+  end
+
+  @doc """
   When given a string it will return an ElixirCLRut.Struct
 
   ## Example
@@ -49,7 +58,7 @@ defmodule ElixirCLRut do
       "1-9"
 
       iex> format("K", false)
-      :error
+      "K"
 
       iex> format("63009482", true)
       "6.300.948-2"
@@ -61,25 +70,25 @@ defmodule ElixirCLRut do
       "14.123.155-3"
   """
   @doc since: "1.0.1"
-  @spec format(struct() | String.t(), boolean() | keyword()) :: String.t()
+  @spec format(struct() | String.t(), String.t() | boolean() | keyword()) :: String.t()
   def format(input, options \\ [dashed?: true, separator: "."])
 
-  def format(input, true) when is_binary(input) do
+  def format(input, dashed?) when is_binary(input) and is_boolean(dashed?) do
+    Rut.from(input, dashed?)
+    |> Formatter.format()
+  end
+
+  def format(input, sep) when is_binary(input) and is_binary(sep) do
     Rut.from(input, true)
-    |> Formatter.format()
+    |> Formatter.format(sep)
   end
 
-  def format(input, false) when is_binary(input) do
-    Rut.from(input, false)
-    |> Formatter.format()
-  end
-
-  def format(input, options) when is_binary(input) do
+  def format(input, options) when is_binary(input) and is_list(options) do
     Rut.from(input, opts(options)[:dashed?])
     |> Formatter.format(opts(options))
   end
 
-  def format(%Rut{} = input, options) do
+  def format(%Rut{} = input, options) when is_list(options) do
     Formatter.format(input, opts(options))
   end
 
@@ -102,24 +111,24 @@ defmodule ElixirCLRut do
 
   ## Examples
 
-      iex> validate("1-9").valid?
+      iex> valid("1-9").valid?
       true
 
-      iex> validate("1").valid?
+      iex> valid("1").valid?
       false
 
-      iex> validate("6300948-1").valid?
+      iex> valid("6300948-1").valid?
       false
   """
-  @doc since: "1.0.0"
-  @spec validate(struct() | String.t(), boolean()) :: struct()
-  def validate(input, includes_checkdigit \\ true)
+  @doc since: "1.0.2"
+  @spec valid(struct() | String.t(), boolean()) :: struct()
+  def valid(input, includes_checkdigit \\ true)
 
-  def validate(input, includes_checkdigit) when is_binary(input) do
+  def valid(input, includes_checkdigit) when is_binary(input) do
     Rut.from(input, includes_checkdigit) |> Validator.validate()
   end
 
-  def validate(input, _) do
+  def valid(input, _) do
     Validator.validate(input)
   end
 
@@ -129,22 +138,22 @@ defmodule ElixirCLRut do
 
   ## Examples
 
-      iex> valid?("1-9")
+      iex> validate("1-9")
       true
 
-      iex> valid?("1k-9")
+      iex> validate("1k-9")
       false
 
-      iex> valid?("6300948-1")
+      iex> validate("6300948-1")
       false
 
-      iex> valid?(from("6300948-1"))
+      iex> validate(from("6300948-1"))
       false
   """
-  @doc since: "1.0.0"
-  @spec valid?(struct() | String.t()) :: boolean()
-  def valid?(input) do
-    %_{valid?: valid?} = validate(input)
+  @doc since: "1.0.2"
+  @spec validate(struct() | String.t()) :: boolean()
+  def validate(input) do
+    %_{valid?: valid?} = valid(input)
     valid?
   end
 end

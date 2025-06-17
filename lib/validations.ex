@@ -44,10 +44,10 @@ defmodule ElixirCLRut.Validations do
   is above or equal to the given length. Defaults to length 2.
   ## Example
 
-      iex> (ElixirCLRut.validate("00-0") |> ElixirCLRut.Validations.length()).valid?
+      iex> (ElixirCLRut.valid("00-0") |> ElixirCLRut.Validations.length()).valid?
       true
 
-      iex> (ElixirCLRut.validate("00-0") |> ElixirCLRut.Validations.length(3)).valid?
+      iex> (ElixirCLRut.valid("00-0") |> ElixirCLRut.Validations.length(3)).valid?
       false
   """
   @doc since: "1.0.0"
@@ -67,10 +67,10 @@ defmodule ElixirCLRut.Validations do
 
   ## Example
 
-      iex> (ElixirCLRut.validate("00000000-0") |> not_all_zeroes()).valid?
+      iex> (ElixirCLRut.valid("00000000-0") |> not_all_zeroes()).valid?
       false
 
-      iex> (ElixirCLRut.validate("00000001-9") |> not_all_zeroes()).valid?
+      iex> (ElixirCLRut.valid("00000001-9") |> not_all_zeroes()).valid?
       true
   """
   @doc since: "1.0.0"
@@ -93,7 +93,7 @@ defmodule ElixirCLRut.Validations do
 
   ## Example
 
-    iex> (ElixirCLRut.validate("1.000.000-9") |> equal_or_above_1M()).valid?
+    iex> (ElixirCLRut.valid("1.000.000-9") |> equal_or_above_1M()).valid?
     true
 
   """
@@ -115,7 +115,7 @@ defmodule ElixirCLRut.Validations do
 
   ## Example
 
-    iex> (ElixirCLRut.validate("100.000.000-7") |> equal_or_below_100M()).valid?
+    iex> (ElixirCLRut.valid("100.000.000-7") |> equal_or_below_100M()).valid?
     true
 
   """

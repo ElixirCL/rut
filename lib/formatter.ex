@@ -20,16 +20,27 @@ defmodule ElixirCLRut.Formatter do
       "14.123.155-3"
   """
   @doc since: "1.0.1"
-  @spec format(struct(), list()) :: String.t() | :error
+  @spec format(struct(), list() | String.t()) :: String.t()
   def format(rut, options \\ [separator: "."])
 
-  def format(%Rut{} = input, options) do
+  def format(%Rut{} = input, options) when is_list(options) do
     case input.checkdigit == :error do
       true ->
-        :error
+        input.from
 
       false ->
         formatted = dots(input.normalized, options[:separator])
+        "#{formatted}-#{input.lastdigit}"
+    end
+  end
+
+  def format(%Rut{} = input, options) when is_binary(options) do
+    case input.checkdigit == :error do
+      true ->
+        input.from
+
+      false ->
+        formatted = dots(input.normalized, options)
         "#{formatted}-#{input.lastdigit}"
     end
   end

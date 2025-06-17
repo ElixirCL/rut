@@ -12,7 +12,7 @@
     <title>ElixirCLRut — ElixirCLRUT v1.0.2</title>
     <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-129ba0e40d.js"></script>
+    <script src="dist/sidebar_items-9a197d577a.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -129,7 +129,17 @@ Made by the <a href="https://elixircl.github.io">Elixir Chile</a> Community.</p>
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#format/2" translate="no">format(input, options \\ [dashed?: false, separator: &quot;.&quot;])</a>
+          <a href="#clean/1" translate="no">clean(input)</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Cleans a RUT</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#format/2" translate="no">format(input, options \\ [dashed?: true, separator: &quot;.&quot;])</a>
 
         </div>
 
@@ -157,12 +167,11 @@ Made by the <a href="https://elixircl.github.io">Elixir Chile</a> Community.</p>
 
       <div class="summary-row">
         <div class="summary-signature">
-          <a href="#valid?/1" translate="no">valid?(input)</a>
+          <a href="#valid/2" translate="no">valid(input, includes_checkdigit \\ true)</a>
 
         </div>
 
-          <div class="summary-synopsis"><p>Performs a simple validation and returns the boolean result.
-true if is valid.</p></div>
+          <div class="summary-synopsis"><p>Executes the rut validations.</p></div>
 
       </div>
 
@@ -172,7 +181,8 @@ true if is valid.</p></div>
 
         </div>
 
-          <div class="summary-synopsis"><p>Executes the rut validations.</p></div>
+          <div class="summary-synopsis"><p>Performs a simple validation and returns the boolean result.
+true if is valid.</p></div>
 
       </div>
 
@@ -190,6 +200,34 @@ true if is valid.</p></div>
 Functions
     </h1>
     <div class="functions-list">
+<section class="detail" id="clean/1">
+
+  <div class="detail-header">
+    <a href="#clean/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">clean(input)</h1>
+
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L18" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> clean(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>Cleans a RUT</p><ul><li>since: &quot;1.0.2&quot;</li></ul>
+  </section>
+</section>
 <section class="detail" id="format/2">
 
     <span id="format/1"></span>
@@ -199,9 +237,9 @@ Functions
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">format(input, options \\ [dashed?: false, separator: &quot;.&quot;])</h1>
+    <h1 class="signature" translate="no">format(input, options \\ [dashed?: true, separator: &quot;.&quot;])</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L59" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L74" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -215,7 +253,7 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> format(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> format(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
 
       </div>
 
@@ -225,14 +263,20 @@ Functions
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="8185371253-1">(</span><span class="s">&quot;1&quot;</span><span class="p" data-group-id="8185371253-1">)</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="1618733569-1">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="1618733569-1">)</span><span class="w">
 </span><span class="s">&quot;1-9&quot;</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="8185371253-2">(</span><span class="s">&quot;63009482&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="8185371253-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="1618733569-2">(</span><span class="s">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="1618733569-2">)</span><span class="w">
+</span><span class="s">&quot;K&quot;</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="1618733569-3">(</span><span class="s">&quot;63009482&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="1618733569-3">)</span><span class="w">
 </span><span class="s">&quot;6.300.948-2&quot;</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="8185371253-3">(</span><span class="s">&quot;63009482&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p" data-group-id="8185371253-3">)</span><span class="w">
-</span><span class="s">&quot;6,300,948-2&quot;</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="1618733569-4">(</span><span class="s">&quot;6300948-2&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">separator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p" data-group-id="1618733569-4">)</span><span class="w">
+</span><span class="s">&quot;6,300,948-2&quot;</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">format</span><span class="p" data-group-id="1618733569-5">(</span><span class="s">&quot;141231553&quot;</span><span class="p" data-group-id="1618733569-5">)</span><span class="w">
+</span><span class="s">&quot;14.123.155-3&quot;</span></code></pre>
   </section>
 </section>
 <section class="detail" id="from/1">
@@ -244,7 +288,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">from(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L33" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L42" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -268,17 +312,17 @@ Functions
   </a>
   Example
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="9743395988-1">(</span><span class="s">&quot;1-9&quot;</span><span class="p" data-group-id="9743395988-1">)</span><span class="w">
-</span><span class="p" data-group-id="9743395988-2">%</span><span class="nc" data-group-id="9743395988-2">ElixirCLRut.Struct</span><span class="p" data-group-id="9743395988-2">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1-9&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-3">[</span><span class="mi">1</span><span class="p" data-group-id="9743395988-3">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p" data-group-id="9743395988-4">]</span><span class="p" data-group-id="9743395988-2">}</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="7764963137-1">(</span><span class="s">&quot;1-9&quot;</span><span class="p" data-group-id="7764963137-1">)</span><span class="w">
+</span><span class="p" data-group-id="7764963137-2">%</span><span class="nc" data-group-id="7764963137-2">ElixirCLRut.Struct</span><span class="p" data-group-id="7764963137-2">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1-9&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-3">[</span><span class="mi">1</span><span class="p" data-group-id="7764963137-3">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p" data-group-id="7764963137-4">]</span><span class="p" data-group-id="7764963137-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="9743395988-5">(</span><span class="s">&quot;141231553&quot;</span><span class="p" data-group-id="9743395988-5">)</span><span class="w">
-</span><span class="p" data-group-id="9743395988-6">%</span><span class="nc" data-group-id="9743395988-6">ElixirCLRut.Struct</span><span class="p" data-group-id="9743395988-6">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;141231553&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-7">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="9743395988-7">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-8">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="9743395988-8">]</span><span class="p" data-group-id="9743395988-6">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="7764963137-5">(</span><span class="s">&quot;141231553&quot;</span><span class="p" data-group-id="7764963137-5">)</span><span class="w">
+</span><span class="p" data-group-id="7764963137-6">%</span><span class="nc" data-group-id="7764963137-6">ElixirCLRut.Struct</span><span class="p" data-group-id="7764963137-6">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;141231553&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-7">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="7764963137-7">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-8">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="7764963137-8">]</span><span class="p" data-group-id="7764963137-6">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="9743395988-9">(</span><span class="s">&quot;14123155&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="9743395988-9">)</span><span class="w">
-</span><span class="p" data-group-id="9743395988-10">%</span><span class="nc" data-group-id="9743395988-10">ElixirCLRut.Struct</span><span class="p" data-group-id="9743395988-10">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14123155&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-11">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="9743395988-11">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-12">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="9743395988-12">]</span><span class="p" data-group-id="9743395988-10">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="7764963137-9">(</span><span class="s">&quot;14123155&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="7764963137-9">)</span><span class="w">
+</span><span class="p" data-group-id="7764963137-10">%</span><span class="nc" data-group-id="7764963137-10">ElixirCLRut.Struct</span><span class="p" data-group-id="7764963137-10">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;14123155&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-11">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="7764963137-11">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-12">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="7764963137-12">]</span><span class="p" data-group-id="7764963137-10">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="9743395988-13">(</span><span class="s">&quot;20.961.605-K&quot;</span><span class="p" data-group-id="9743395988-13">)</span><span class="w">
-</span><span class="p" data-group-id="9743395988-14">%</span><span class="nc" data-group-id="9743395988-14">ElixirCLRut.Struct</span><span class="p" data-group-id="9743395988-14">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;20.961.605-K&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-15">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="9743395988-15">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9743395988-16">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="p" data-group-id="9743395988-16">]</span><span class="p" data-group-id="9743395988-14">}</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">from</span><span class="p" data-group-id="7764963137-13">(</span><span class="s">&quot;20.961.605-K&quot;</span><span class="p" data-group-id="7764963137-13">)</span><span class="w">
+</span><span class="p" data-group-id="7764963137-14">%</span><span class="nc" data-group-id="7764963137-14">ElixirCLRut.Struct</span><span class="p" data-group-id="7764963137-14">{</span><span class="ss">checkdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">dashed?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;20.961.605-K&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">includes_checkdigit?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">lastdigit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-15">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="7764963137-15">]</span><span class="p">,</span><span class="w"> </span><span class="ss">normalized_with_checkdigit</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7764963137-16">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;K&quot;</span><span class="p" data-group-id="7764963137-16">]</span><span class="p" data-group-id="7764963137-14">}</span></code></pre>
   </section>
 </section>
 <section class="detail" id="from/2">
@@ -290,7 +334,7 @@ Functions
     </a>
     <h1 class="signature" translate="no">from(input, includes_check_digit)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L39" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L48" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
@@ -311,22 +355,24 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="valid?/1">
+<section class="detail" id="valid/2">
+
+    <span id="valid/1"></span>
 
   <div class="detail-header">
-    <a href="#valid?/1" class="detail-link" title="Link to this function">
+    <a href="#valid/2" class="detail-link" title="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature" translate="no">valid?(input)</h1>
+    <h1 class="signature" translate="no">valid(input, includes_checkdigit \\ true)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L120" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L125" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
 
 
-      <span class="note">(since 1.0.0)</span>
+      <span class="note">(since 1.0.2)</span>
 
   </div>
 
@@ -334,24 +380,23 @@ Functions
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> valid?(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> valid(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
 
       </div>
 
-<p>Performs a simple validation and returns the boolean result.
-true if is valid.</p><h2 id="valid?/1-examples" class="section-heading">
-  <a href="#valid?/1-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+<p>Executes the rut validations.</p><h2 id="valid/2-examples" class="section-heading">
+  <a href="#valid/2-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">examples</p>
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="2897622082-1">(</span><span class="s">&quot;1&quot;</span><span class="p" data-group-id="2897622082-1">)</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">valid</span><span class="p" data-group-id="9264418546-1">(</span><span class="s">&quot;1-9&quot;</span><span class="p" data-group-id="9264418546-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">true</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="2897622082-2">(</span><span class="s">&quot;6300948-1&quot;</span><span class="p" data-group-id="2897622082-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">valid</span><span class="p" data-group-id="9264418546-2">(</span><span class="s">&quot;1&quot;</span><span class="p" data-group-id="9264418546-2">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">false</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">valid?</span><span class="p" data-group-id="2897622082-3">(</span><span class="n">from</span><span class="p" data-group-id="2897622082-4">(</span><span class="s">&quot;6300948-1&quot;</span><span class="p" data-group-id="2897622082-4">)</span><span class="p" data-group-id="2897622082-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">valid</span><span class="p" data-group-id="9264418546-3">(</span><span class="s">&quot;6300948-1&quot;</span><span class="p" data-group-id="9264418546-3">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
 </span><span class="no">false</span></code></pre>
   </section>
 </section>
@@ -364,13 +409,13 @@ true if is valid.</p><h2 id="valid?/1-examples" class="section-heading">
     </a>
     <h1 class="signature" translate="no">validate(input)</h1>
 
-      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L95" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/ElixirCL/rut/blob/main/lib/rut.ex#L155" class="view-source" rel="help" title="View Source">
        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
 
 
-      <span class="note">(since 1.0.0)</span>
+      <span class="note">(since 1.0.2)</span>
 
   </div>
 
@@ -378,20 +423,27 @@ true if is valid.</p><h2 id="valid?/1-examples" class="section-heading">
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> validate(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> validate(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">struct</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()</pre>
 
       </div>
 
-<p>Executes the rut validations.</p><h2 id="validate/1-examples" class="section-heading">
+<p>Performs a simple validation and returns the boolean result.
+true if is valid.</p><h2 id="validate/1-examples" class="section-heading">
   <a href="#validate/1-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">examples</p>
   </a>
   Examples
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">validate</span><span class="p" data-group-id="8510297407-1">(</span><span class="s">&quot;1&quot;</span><span class="p" data-group-id="8510297407-1">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="n">validate</span><span class="p" data-group-id="0049730031-1">(</span><span class="s">&quot;1-9&quot;</span><span class="p" data-group-id="0049730031-1">)</span><span class="w">
 </span><span class="no">true</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">validate</span><span class="p" data-group-id="8510297407-2">(</span><span class="s">&quot;6300948-1&quot;</span><span class="p" data-group-id="8510297407-2">)</span><span class="o">.</span><span class="n">valid?</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">validate</span><span class="p" data-group-id="0049730031-2">(</span><span class="s">&quot;1k-9&quot;</span><span class="p" data-group-id="0049730031-2">)</span><span class="w">
+</span><span class="no">false</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">validate</span><span class="p" data-group-id="0049730031-3">(</span><span class="s">&quot;6300948-1&quot;</span><span class="p" data-group-id="0049730031-3">)</span><span class="w">
+</span><span class="no">false</span><span class="w">
+
+</span><span class="gp unselectable">iex&gt; </span><span class="n">validate</span><span class="p" data-group-id="0049730031-4">(</span><span class="n">from</span><span class="p" data-group-id="0049730031-5">(</span><span class="s">&quot;6300948-1&quot;</span><span class="p" data-group-id="0049730031-5">)</span><span class="p" data-group-id="0049730031-4">)</span><span class="w">
 </span><span class="no">false</span></code></pre>
   </section>
 </section>
