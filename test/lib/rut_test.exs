@@ -202,4 +202,19 @@ defmodule ElixirCLRutTest do
       assert Rut.format("", ",") == ""
     end
   end
+
+  describe "checkdigit/2" do
+    test "get checkdigit from a rut" do
+      assert Rut.checkdigit("63009482") == "2"
+      assert Rut.checkdigit("6300948", false) == "2"
+      assert Rut.checkdigit("63009482", true) == "2"
+      assert Rut.checkdigit("63009482", false) == "8"
+      assert Rut.checkdigit("12345678K", true) == "5"
+      assert Rut.dv("63009482") == "2"
+      assert Rut.dv("6300948", false) == "2"
+      assert Rut.dv("63009482", true) == "2"
+      assert Rut.dv("63009482", false) == "8"
+      assert Rut.dv("12345678K", true) == "5"
+    end
+  end
 end

@@ -20,6 +20,23 @@ defmodule ElixirCLRut do
   end
 
   @doc """
+  Gets the check digit of a rut
+  - since: "1.0.3"
+  """
+  @spec checkdigit(String.t()) :: String.t()
+  def checkdigit(input, includes_checkdigit \\ true) when is_binary(input) do
+    ElixirCLRut.from(input, includes_checkdigit).checkdigit
+  end
+
+  @doc """
+  Alternate name for checkdigit/2
+  - since: "1.0.3"
+  """
+  def dv(input, includes_checkdigit \\ true) do
+    checkdigit(input, includes_checkdigit)
+  end
+
+  @doc """
   When given a string it will return an ElixirCLRut.Struct
 
   ## Example
