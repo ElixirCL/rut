@@ -168,14 +168,14 @@ defmodule ElixirCLRut do
       false
   """
   @doc since: "1.0.2"
-  @spec validate(struct() | String.t()) :: boolean()
-  def validate(input) do
-    %_{valid?: valid?} = valid(input)
+  @spec validate(struct() | String.t(), boolean()) :: boolean()
+  def validate(input, includes_checkdigit \\ true) do
+    %_{valid?: valid?} = valid(input, includes_checkdigit)
     valid?
   end
 
-  # compatibility
-  def valid?(input) do
-    validate(input)
+  @doc since: "1.0.0"
+  def valid?(input, includes_checkdigit \\ true) do
+    validate(input, includes_checkdigit)
   end
 end
