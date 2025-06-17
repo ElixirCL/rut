@@ -156,4 +156,9 @@ defmodule ElixirCLRut do
     %_{valid?: valid?} = valid(input)
     valid?
   end
+
+  # compatibility
+  def valid?(input) do
+    validate(input)
+  end
 end
